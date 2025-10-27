@@ -1,25 +1,12 @@
-/* Reset and Base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-
-body {
-  background-color: #ffffff;
-  color: #1a1a1a;
-  line-height: 1.6;
-}
 
 /* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 80px;
-  border-bottom: 1px solid #e5e7eb;
-  background-color: #ffffff;
+  padding: 15px 80px;
+  border-bottom: 1px solid #7d7f83;
+  background-color: #FFFFFF;
 }
 
 .logo {
@@ -28,12 +15,11 @@ body {
   gap: 10px;
 }
 
-.logo-box {
-  width: 35px;
-  height: 35px;
-  border-radius: 6px;
-  background-color: #2563eb;
+.logo img {
+  width: 50px;
+  height: auto;
 }
+
 
 .logo span {
   font-size: 20px;
@@ -54,7 +40,7 @@ nav a {
 }
 
 nav a:hover {
-  color: #2563eb;
+  color: #3A6B97;
 }
 
 .auth-buttons {
@@ -67,12 +53,12 @@ nav a:hover {
   border: 1px solid #cbd5e1;
   padding: 8px 18px;
   border-radius: 6px;
-  color: #374151;
+  color: #437199;
   cursor: pointer;
 }
 
 .auth-buttons .signup {
-  background-color: #2563eb;
+  background-color: #4A7BA7;
   border: none;
   color: #fff;
   padding: 8px 18px;
@@ -80,8 +66,13 @@ nav a:hover {
   cursor: pointer;
 }
 
+.auth-buttons .login:hover {
+  border-color: #3A6B97;
+  color: #3A6B97;
+}
+
 .auth-buttons .signup:hover {
-  background-color: #1d4ed8;
+  background-color: #3A6B97;
 }
 
 /* Hero Section */
@@ -89,7 +80,7 @@ nav a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 80px;
+  padding: 80px 100px;
   gap: 50px;
 }
 
@@ -100,19 +91,23 @@ nav a:hover {
 .hero-text .tag {
   display: inline-block;
   background-color: #e0f2fe;
-  color: #2563eb;
+  color: #3A6B97;
   padding: 6px 14px;
   border-radius: 20px;
   font-size: 14px;
   margin-bottom: 20px;
 }
 
-.hero-text h1 {
+.hero-text .title1,
+.hero-text .title2 {
   font-size: 48px;
   font-weight: 700;
-  color: #1e3a8a;
+}
+
+.hero-text .title2 {
   margin-bottom: 20px;
 }
+
 
 .hero-text p {
   font-size: 16px;
@@ -120,14 +115,14 @@ nav a:hover {
   margin-bottom: 30px;
 }
 
-.buttons {
+.hero-buttons {
   display: flex;
   gap: 15px;
   margin-bottom: 40px;
 }
 
 .primary {
-  background-color: #2563eb;
+  background-color: #4A7BA7;
   color: #fff;
   padding: 12px 24px;
   border: none;
@@ -137,13 +132,13 @@ nav a:hover {
 }
 
 .primary:hover {
-  background-color: #1d4ed8;
+  background-color: #3A6B97;
 }
 
 .secondary {
   background-color: transparent;
   border: 1px solid #cbd5e1;
-  color: #1e3a8a;
+  color: #4A7BA7;
   padding: 12px 24px;
   border-radius: 8px;
   font-size: 16px;
@@ -151,8 +146,8 @@ nav a:hover {
 }
 
 .secondary:hover {
-  border-color: #2563eb;
-  color: #2563eb;
+  border-color: #3A6B97;
+  color: #3A6B97;
 }
 
 /* Stats */
@@ -162,7 +157,7 @@ nav a:hover {
 }
 
 .stat h3 {
-  color: #1e3a8a;
+  color: #4A7BA7;
   font-size: 24px;
   font-weight: 700;
 }
