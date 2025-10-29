@@ -150,23 +150,6 @@ nav a:hover {
   color: #3A6B97;
 }
 
-/* Stats */
-.stats {
-  display: flex;
-  gap: 40px;
-}
-
-.stat h3 {
-  color: #4A7BA7;
-  font-size: 24px;
-  font-weight: 700;
-}
-
-.stat p {
-  color: #6b7280;
-  font-size: 14px;
-}
-
 /* Hero Image */
 .hero-image img {
   width: 480px;
