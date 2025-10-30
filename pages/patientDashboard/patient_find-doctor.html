@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Dashboard</title>
+  <link rel="stylesheet" href="./patient_CSS/patient_find-doctor.css" />
+  <link rel="stylesheet" href="../../css/global.css" />
+  <link rel="stylesheet" href="../../css/sidebar.css" />
+</head>
+<body>
+  <div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="profile">
+        <div class="avatar">PN</div>
+        <h2>Patient Name</h2>
+      </div>
+      <button class="logout-btn">
+        <img src="../../assets/icons/patientsDashboard/logout.svg" alt="logout icon">
+        Log out
+      </button>
+
+      <nav class="menu">
+        <a href="./patient_dashboard.html" class="menu-item">
+          <img src="../../assets/icons/patientsDashboard/Home.svg" alt="home icon">
+          Home
+        </a>
+        <a href="./patient_find-doctor.html" class="menu-item active">
+          <img src="../../assets/icons/patientsDashboard/findDoctor.svg" alt="doctor icon">
+          Find Doctor
+        </a>
+        <a href="#" class="menu-item">
+          <img src="../../assets/icons/patientsDashboard/myConsultation.svg" alt="consultations icon">
+          My Consultations
+        </a>
+        <a href="#" class="menu-item">
+          <img src="../../assets/icons/patientsDashboard/bookingHistory.svg" alt="history icon">
+          Booking History
+        </a>
+        <a href="#" class="menu-item">
+          <img src="../../assets/icons/patientsDashboard/setting.svg" alt="settings icon">
+          Account Settings
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <h1>Find Doctor</h1>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Search by name or specialty..." />
+        </div>
+
+        <div class="doctor-list">
+            <div class="doctor-card">
+            <div class="doctor-info">
+                <h2>Dr. Sarah Johnson</h2>
+                <p class="specialty">Cardiologist</p>
+                <p class="hospital">🏥 Medical Center A</p>
+                <p class="availability">📅 Available Today</p>
+            </div>
+            <button class="book-btn">Book Appointment</button>
+            </div>
+
+            <div class="doctor-card">
+            <div class="doctor-info">
+                <h2>Dr. Michael Chen</h2>
+                <p class="specialty">General Practitioner</p>
+                <p class="hospital">🏥 Health Clinic B</p>
+                <p class="availability">📅 Available Tomorrow</p>
+            </div>
+            <button class="book-btn">Book Appointment</button>
+            </div>
+
+            <div class="doctor-card">
+            <div class="doctor-info">
+                <h2>Dr. Emily Williams</h2>
+                <p class="specialty">Pediatrician</p>
+                <p class="hospital">🏥 Children's Hospital</p>
+                <p class="availability">📅 Available This Week</p>
+            </div>
+            <button class="book-btn">Book Appointment</button>
+            </div>
+        </div>
+    </main>
+
+  </div>
+</body>
+</html>
