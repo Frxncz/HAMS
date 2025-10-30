@@ -1,0 +1,114 @@
+/* Sidebar*/
+.sidebar {
+  width: 270px;
+  background-color: #dbe8f5;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Profile section */
+.profile {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  background-color: #3a6b97;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 18px;
+  margin: 0 auto 10px;
+}
+
+.profile h2 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Logout button */
+.logout-btn {
+  width: 100%;
+  background-color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 40px;
+  font-weight: 500;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.logout-btn img {
+  width: 16px;
+  height: 16px;
+  transition: filter 0.3s ease;
+  /* Base color: #3A6B97 */
+  filter: invert(38%) sepia(28%) saturate(658%) hue-rotate(173deg) brightness(92%) contrast(89%);
+}
+
+/* Hover effect for logout button */
+.logout-btn:hover {
+  background-color: #3a6b97;
+  color: white;
+}
+
+.logout-btn:hover img {
+  filter: brightness(0) invert(1); /* turns white */
+}
+
+/* Menu navigation */
+.menu {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Menu item style */
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* SVG icon via <img> */
+.menu-item img {
+  width: 20px;
+  height: 20px;
+  transition: filter 0.3s ease;
+  /* Set base icon color to #3A6B97 */
+  filter: invert(38%) sepia(28%) saturate(658%) hue-rotate(173deg) brightness(92%) contrast(89%);
+}
+
+/* Hover and active state */
+.menu-item.active,
+.menu-item:hover {
+  background-color: #3a6b97;
+  color: white;
+}
+
+/* Change icon to white on hover/active */
+.menu-item.active img,
+.menu-item:hover img {
+  filter: brightness(0) invert(1);
+}
