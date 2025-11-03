@@ -4,6 +4,16 @@
 }
 
 .main-content {
+  margin-left: 270px;  /* same as sidebar width */
+  padding: 30px;
+  height: 100vh;
+  overflow-y: auto;    /* allows scrolling only here */
+  background-color: #f9fbfd;
+  box-sizing: border-box;
+}
+
+
+.main-content {
   flex: 1;
   padding: 30px 40px;
   background-color: #f9fbfd;

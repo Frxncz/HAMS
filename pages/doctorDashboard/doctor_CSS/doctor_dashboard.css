@@ -1,4 +1,3 @@
-
 .container {
   display: flex;
   height: 100vh;
@@ -18,19 +17,23 @@
 .main-content {
   flex: 1;
   padding: 30px;
+  background-color: #f9fbfd;
 }
 
+/* Welcome section */
 .welcome {
   background-color: #dbe8f5;
   padding: 30px;
   border-radius: 10px;
+  margin-bottom: 30px;
 }
 
 .welcome h2 {
   margin-bottom: 8px;
+  font-size: 22px;
 }
 
-.welcome .patient-name {
+.welcome .doctor-name {
   font-weight: 600;
   margin-bottom: 10px;
 }
@@ -41,7 +44,7 @@
   margin-bottom: 20px;
 }
 
-.schedule-btn {
+.appointments-btn {
   background-color: #3a6b97;
   color: white;
   border: none;
@@ -51,7 +54,7 @@
   font-weight: 600;
 }
 
-.schedule-btn:hover {
+.appointments-btn:hover {
   background-color: #325c84;
 }
 
@@ -62,6 +65,7 @@
 
 .appointments h3 {
   margin-bottom: 15px;
+  font-size: 18px;
 }
 
 table {
