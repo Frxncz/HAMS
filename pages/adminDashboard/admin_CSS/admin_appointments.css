@@ -111,19 +111,19 @@
       color: #c62828;
     }
 
+
     /* Action Button */
     .btn {
-      padding: 6px 14px;
-      border: 1px solid #e3eaf2;
-      border-radius: 6px;
-      font-size: 13px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      background-color: white;
-      color: #333;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    background-color: #3a6b97;
+    color: white;
+    border: 1px solid #3a6b97;
     }
 
     .btn:hover {
-      background-color: #f9fbfd;
-      border-color: #3a6b97;
+    background-color: #325c84;
     }
+

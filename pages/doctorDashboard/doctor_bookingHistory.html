@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Doctor Doctor History</title>
-  <link rel="stylesheet" href="#" />
+  <link rel="stylesheet" href="./doctor_CSS/doctor_bookingHistory.css" />
   <link rel="stylesheet" href="../../css/global.css" />
   <link rel="stylesheet" href="../../css/sidebar.css" />
 </head>
@@ -47,6 +47,61 @@
     </aside>
 
     <!-- Main Content-->
+    <div class="main-content">
+      <h1 class="page-title">Booking History</h1>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Appointment #</th>
+            <th>Patient Name</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>APT-001</td>
+            <td>John Smith</td>
+            <td>2024-12-15</td>
+            <td>14:00</td>
+            <td>In-Person</td>
+            <td><span class="status completed">completed</span></td>
+            <td><a href="#" class="consult-btn">Consultation History</a></td>
+          </tr>
+          <tr>
+            <td>APT-002</td>
+            <td>Sarah Johnson</td>
+            <td>2024-11-20</td>
+            <td>10:30</td>
+            <td>In-Person</td>
+            <td><span class="status completed">completed</span></td>
+            <td><a href="#" class="consult-btn">Consultation History</a></td>
+          </tr>
+          <tr>
+            <td>APT-003</td>
+            <td>Michael Chen</td>
+            <td>2024-10-10</td>
+            <td>16:00</td>
+            <td>In-Person</td>
+            <td><span class="status cancelled">cancelled</span></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>APT-004</td>
+            <td>Emily Williams</td>
+            <td>2024-09-05</td>
+            <td>14:30</td>
+            <td>In-Person</td>
+            <td><span class="status completed">completed</span></td>
+            <td><a href="#" class="consult-btn">Consultation History</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
   </div>
 </body>
