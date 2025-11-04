@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Doctor Dashboard</title>
-  <link rel="stylesheet" href="#" />
+  <link rel="stylesheet" href="./doctor_CSS/doctor_settings.css" />
   <link rel="stylesheet" href="../../css/global.css" />
   <link rel="stylesheet" href="../../css/sidebar.css" />
 </head>
@@ -47,6 +47,97 @@
     </aside>
 
     <!-- Main Content-->
+    <main class="main-content">
+      <h1>Account Settings</h1>
+
+      <!-- Personal Information -->
+      <section class="settings-section">
+        <h2>Personal Information</h2>
+        <p class="section-subtitle">Update your personal details</p>
+        <form>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first-name">First Name</label>
+              <input type="text" id="first-name" placeholder="Patient">
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last Name</label>
+              <input type="text" id="last-name" placeholder="Name">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="patient@example.com">
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="+1 (555) 123-4567">
+          </div>
+
+          <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob">
+          </div>
+
+          <button type="submit" class="save-btn">Save Changes</button>
+        </form>
+      </section>
+
+      <!-- Address -->
+      <section class="settings-section">
+        <h2>Address</h2>
+        <p class="section-subtitle">Your current address</p>
+        <form>
+          <div class="form-group">
+            <label for="street">Street Address</label>
+            <input type="text" id="street" placeholder="123 Main Street">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="city">City</label>
+              <input type="text" id="city" placeholder="New York">
+            </div>
+            <div class="form-group">
+              <label for="state">State</label>
+              <input type="text" id="state" placeholder="NY">
+            </div>
+            <div class="form-group">
+              <label for="zip">ZIP Code</label>
+              <input type="text" id="zip" placeholder="10001">
+            </div>
+          </div>
+
+          <button type="submit" class="save-btn">Save Address</button>
+        </form>
+      </section>
+
+      <!-- Security -->
+      <section class="settings-section">
+        <h2>Security</h2>
+        <p class="section-subtitle">Update your password</p>
+        <form>
+          <div class="form-group">
+            <label for="current-password">Current Password</label>
+            <input type="password" id="current-password">
+          </div>
+
+          <div class="form-group">
+            <label for="new-password">New Password</label>
+            <input type="password" id="new-password">
+          </div>
+
+          <div class="form-group">
+            <label for="confirm-password">Confirm New Password</label>
+            <input type="password" id="confirm-password">
+          </div>
+
+          <button type="submit" class="save-btn">Update Password</button>
+        </form>
+      </section>
+    </main>
 
   </div>
 </body>
