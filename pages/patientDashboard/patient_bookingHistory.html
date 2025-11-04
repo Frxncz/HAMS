@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Patient Booking History</title>
-  <link rel="stylesheet" href="#" />
+  <link rel="stylesheet" href="./patient_CSS/patient_bookingHistory.css" />
   <link rel="stylesheet" href="../../css/global.css" />
   <link rel="stylesheet" href="../../css/sidebar.css" />
 </head>
@@ -47,6 +47,64 @@
     </aside>
 
     <!-- Main Content -->
+    <div class="main-content">
+      <h2>Booking History</h2>
+
+      <div class="appointments">
+        <table>
+          <thead>
+            <tr>
+              <th>Appointment #</th>
+              <th>Doctor</th>
+              <th>Specialty</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>APT-001</td>
+              <td>Dr. Sarah Johnson</td>
+              <td>Cardiologist</td>
+              <td>2024-12-15</td>
+              <td>14:00</td>
+              <td><span class="status completed">completed</span></td>
+              <td><button class="action-btn">Book Again</button></td>
+            </tr>
+            <tr>
+              <td>APT-002</td>
+              <td>Dr. Michael Chen</td>
+              <td>General Practitioner</td>
+              <td>2024-11-20</td>
+              <td>10:30</td>
+              <td><span class="status completed">completed</span></td>
+              <td><button class="action-btn">Book Again</button></td>
+            </tr>
+            <tr>
+              <td>APT-003</td>
+              <td>Dr. Emily Williams</td>
+              <td>Pediatrician</td>
+              <td>2024-10-10</td>
+              <td>16:00</td>
+              <td><span class="status cancelled">cancelled</span></td>
+              <td><button class="action-btn">Book Again</button></td>
+            </tr>
+            <tr>
+              <td>APT-004</td>
+              <td>Dr. Sarah Johnson</td>
+              <td>Cardiologist</td>
+              <td>2024-09-05</td>
+              <td>14:30</td>
+              <td><span class="status completed">completed</span></td>
+              <td><button class="action-btn">Book Again</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
  
   </div>
 </body>

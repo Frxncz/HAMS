@@ -4,10 +4,10 @@
 }
 
 .main-content {
-  margin-left: 270px;  /* same as sidebar width */
+  margin-left: 270px; 
   padding: 30px;
   height: 100vh;
-  overflow-y: auto;    /* allows scrolling only here */
+  overflow-y: auto;   
   background-color: #f9fbfd;
   box-sizing: border-box;
 }
@@ -79,6 +79,9 @@
 .availability {
   font-size: 13px;
   color: #666;
+  display: flex;             
+  align-items: center;      
+  gap: 6px;                
   margin-top: 3px;
 }
 
