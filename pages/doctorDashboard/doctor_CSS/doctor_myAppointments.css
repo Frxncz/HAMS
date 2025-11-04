@@ -74,13 +74,20 @@
 }
 
 /*Appointment Details*/
-.card-details {
+.card-details p {
   display: flex;
-  gap: 20px;
-  margin: 10px 0;
-  color: #555;
-  font-size: 14px;
+  align-items: center;  
+  gap: 6px;             
+  margin: 8px 0;            
 }
+
+/* Make icons the right size */
+.card-details img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
 
 /*Buttons inside cards ONLY*/
 .card-actions {
@@ -110,8 +117,9 @@
 }
 
 .card-actions .decline-btn {
-  background-color: #e74c3c;
-  color: white;
+  background-color: #fff0f0;
+  color: #e74c3c;
+  border: 1px solid #f1c0c0;
 }
 
 .card-actions button:hover {
