@@ -1,0 +1,108 @@
+/* Main Content */
+.main-content {
+  margin-left: 270px;
+  flex: 1;
+  padding: 30px;
+  background-color: #f9fbfd;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.page-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* Search Bar */
+.search-bar {
+  width: 100%;
+  max-width: 450px;
+  padding: 10px 16px;
+  border: 1px solid #e3eaf2;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.search-bar:focus {
+  outline: none;
+  border-color: #3a6b97;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+thead {
+  background-color: #cbdcec;
+  text-align: left;
+}
+
+th, td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #e3eaf2;
+  font-size: 14px;
+  color: #333;
+}
+
+th {
+  font-weight: 600;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background-color: #f9fbfd;
+}
+
+/* Action Buttons */
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  padding: 6px 14px;
+  border: 1px solid #e3eaf2;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: white;
+  color: #333;
+}
+
+/* View Button (Green) */
+.btn.view {
+    background-color: #3a6b97;
+    color: white;
+    border: 1px solid #3a6b97;
+}
+
+.btn.edit {
+    background-color: #3a6b97;
+    color: white;
+    border: 1px solid #3a6b97;
+}
+
+.btn.view:hover,
+.btn.edit:hover {
+background-color: #325c84;
+}
+
+/* Deactivate Button (Red) */
+.btn.deactivate {
+  background-color: #fff0f0;
+  color: #e74c3c;
+  border: 1px solid #f1c0c0;
+}

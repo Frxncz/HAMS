@@ -1,0 +1,79 @@
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 270px; /* same as sidebar width */
+  flex: 1;
+  padding: 30px;
+  background-color: #f9fbfd;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.main-content h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Appointments Table */
+.appointments {
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #cbdcec;
+  text-align: left;
+}
+
+th, td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e3eaf2;
+  font-size: 14px;
+  color: #333;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Status labels */
+.status {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: lowercase;
+}
+
+.status.completed {
+  background-color: #d9f6e3;
+  color: #2e7d32;
+}
+
+.status.cancelled {
+  background-color: #f8d7da;
+  color: #c62828;
+}
+
+/* Action Button */
+.action-btn {
+  background-color: #3a6b97;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}

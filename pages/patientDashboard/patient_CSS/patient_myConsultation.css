@@ -1,0 +1,116 @@
+/* Main Content Layout */
+.main-content {
+  flex: 1;
+  margin-left: 270px; /* same as sidebar width */
+  padding: 30px 40px;
+  background-color: #f9fbfd;
+  height: 100vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.main-content h1 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Consultation Card */
+.consultation-card {
+  background-color: #fff;
+  border: 1px solid #dce6f2;
+  border-radius: 10px;
+  padding: 20px 25px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* Header: Doctor info and status */
+.consultation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.consultation-header h2 {
+  font-size: 16px;
+  color: #333;
+  margin: 0;
+}
+
+.specialty {
+  color: #3a6b97;
+  font-weight: 500;
+  margin-top: 4px;
+  font-size: 14px;
+}
+
+/* Status Tag */
+.status {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  text-transform: lowercase;
+  font-weight: 500;
+}
+
+.status.confirmed {
+  background-color: #d4f5d4;
+  color: #1b6e1b;
+}
+
+/* Details Section */
+.consultation-details {
+  margin: 15px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: #555;
+  font-size: 14px;
+}
+
+.consultation-details img {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 6px;
+  filter: invert(38%) sepia(28%) saturate(658%) hue-rotate(173deg) brightness(92%) contrast(89%);
+}
+
+/* Action Buttons */
+.consultation-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.consultation-actions button {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.view-btn {
+  background-color: #3a6b97;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+
+.cancel-btn {
+  background-color: #fff0f0;
+  color: #e74c3c;
+  border: 1px solid #f1c0c0;
+}
+
+.consultation-actions button:hover {
+  opacity: 0.85;
+}

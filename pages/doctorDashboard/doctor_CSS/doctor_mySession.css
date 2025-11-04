@@ -1,0 +1,114 @@
+    /* Main Content */
+    .main-content {
+      margin-left: 270px;
+      flex: 1;
+      padding: 30px;
+      background-color: #f9fbfd;
+      box-sizing: border-box;
+      overflow-y: auto;
+    }
+
+    .page-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    /* Session Card */
+    .session-card {
+      background-color: white;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e3eaf2;
+      position: relative;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .patient-info h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 4px;
+    }
+
+    .patient-info p {
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    /* Status Badge */
+    .status-badge {
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .status-badge.scheduled {
+      background-color: #dbeafe;
+      color: #1e40af;
+    }
+
+    /* Session Details */
+    .session-details {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .detail-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: #4b5563;
+    }
+
+    .detail-item img {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Action Buttons */
+    .session-actions {
+    display: flex;
+    gap: 10px;
+    }
+
+    .btn {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    }
+
+    /* Blue - View Details */
+    .btn-view {
+    background-color: #3a6b97;
+    color: white;
+    border: 1px solid #3a6b97;
+    }
+
+    .btn-view:hover {
+    background-color: #325b82;
+    }
+
+    /* Red - Reschedule */
+    .btn-reschedule {
+    background-color: #fdecea;
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+    }

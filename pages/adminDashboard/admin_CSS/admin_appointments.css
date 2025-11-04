@@ -1,0 +1,129 @@
+    /* Main Content */
+    .main-content {
+      margin-left: 270px;
+      flex: 1;
+      padding: 30px;
+      background-color: #f9fbfd;
+      box-sizing: border-box;
+      overflow-y: auto;
+    }
+
+    .page-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    /* Filters */
+    .filters {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .search-bar {
+      flex: 1;
+      min-width: 300px;
+      padding: 10px 16px;
+      border: 1px solid #e3eaf2;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .search-bar:focus {
+      outline: none;
+      border-color: #3a6b97;
+    }
+
+    .filter-select {
+      padding: 8px 14px;
+      border: 1px solid #e3eaf2;
+      border-radius: 6px;
+      font-size: 14px;
+      background-color: white;
+      cursor: pointer;
+      min-width: 160px;
+    }
+
+    .filter-select:focus {
+      outline: none;
+      border-color: #3a6b97;
+    }
+
+    /* Table Styles */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    thead {
+      background-color: #cbdcec;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 14px 16px;
+      border-bottom: 1px solid #e3eaf2;
+      font-size: 14px;
+      color: #333;
+    }
+
+    th {
+      font-weight: 600;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    tbody tr:hover {
+      background-color: #f9fbfd;
+    }
+
+    /* Status badges */
+    .status {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .status.confirmed {
+      background-color: #d9f6e3;
+      color: #2e7d32;
+    }
+
+    .status.pending {
+      background-color: #fff4e5;
+      color: #e65100;
+    }
+
+    .status.cancelled {
+      background-color: #f8d7da;
+      color: #c62828;
+    }
+
+
+    /* Action Button */
+    .btn {
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    background-color: #3a6b97;
+    color: white;
+    border: 1px solid #3a6b97;
+    }
+
+    .btn:hover {
+    background-color: #325c84;
+    }
+

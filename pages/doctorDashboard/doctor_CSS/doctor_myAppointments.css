@@ -74,13 +74,20 @@
 }
 
 /*Appointment Details*/
-.card-details {
+.card-details p {
   display: flex;
-  gap: 20px;
-  margin: 10px 0;
-  color: #555;
-  font-size: 14px;
+  align-items: center;  
+  gap: 6px;             
+  margin: 8px 0;            
 }
+
+/* Make icons the right size */
+.card-details img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
 
 /*Buttons inside cards ONLY*/
 .card-actions {
@@ -99,19 +106,22 @@
 }
 
 .card-actions .view-btn {
-  background-color: transparent;
-  border: 1px solid #d0d7de;
-  color: #333;
-}
-
-.card-actions .accept-btn {
   background-color: #3a6b97;
   color: white;
 }
 
+.card-actions .accept-btn {
+  background-color: #e8f9ee; /* light green background */
+  color: #27ae60; /* darker green text */
+  border: 1px solid #27ae60;
+  transition: all 0.3s ease;
+}
+
 .card-actions .decline-btn {
-  background-color: #e74c3c;
-  color: white;
+  background-color: #fdecea; /* light red background */
+  color: #e74c3c; /* darker red text */
+  border: 1px solid #e74c3c;
+  transition: all 0.3s ease;
 }
 
 .card-actions button:hover {
