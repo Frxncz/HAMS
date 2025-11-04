@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Appointments</title>
-  <link rel="stylesheet" href="#" />
+  <link rel="stylesheet" href="./admin_CSS/admin_appointments.css" />
   <link rel="stylesheet" href="../../css/global.css" />
   <link rel="stylesheet" href="../../css/sidebar.css" />
 </head>
@@ -47,6 +47,92 @@
     </aside>
 
     <!-- Main Content -->
+    <div class="main-content">
+      <h1 class="page-title">Appointments</h1>
+
+      <div class="filters">
+        <input type="text" class="search-bar" placeholder="Search by patient name or appointment number...">
+        <select class="filter-select">
+          <option>All Doctors</option>
+          <option>Dr. Sarah Johnson</option>
+          <option>Dr. Michael Chen</option>
+          <option>Dr. Emily Williams</option>
+        </select>
+        <select class="filter-select">
+          <option>All Statuses</option>
+          <option>Confirmed</option>
+          <option>Pending</option>
+          <option>Cancelled</option>
+        </select>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Appointment #</th>
+            <th>Patient Name</th>
+            <th>Doctor</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>APT-001</td>
+            <td>Sarah Johnson</td>
+            <td>Dr. Sarah Johnson</td>
+            <td>2025-10-22</td>
+            <td>10:00 AM</td>
+            <td>In-Person</td>
+            <td><span class="status confirmed">confirmed</span></td>
+            <td><button class="btn">View Details</button></td>
+          </tr>
+          <tr>
+            <td>APT-002</td>
+            <td>Michael Chen</td>
+            <td>Dr. Michael Chen</td>
+            <td>2025-10-23</td>
+            <td>2:00 PM</td>
+            <td>In-Person</td>
+            <td><span class="status confirmed">confirmed</span></td>
+            <td><button class="btn">View Details</button></td>
+          </tr>
+          <tr>
+            <td>APT-003</td>
+            <td>Emily Davis</td>
+            <td>Dr. Sarah Johnson</td>
+            <td>2025-10-24</td>
+            <td>11:30 AM</td>
+            <td>In-Person</td>
+            <td><span class="status pending">pending</span></td>
+            <td><button class="btn">View Details</button></td>
+          </tr>
+          <tr>
+            <td>APT-004</td>
+            <td>John Smith</td>
+            <td>Dr. Michael Chen</td>
+            <td>2025-10-25</td>
+            <td>9:00 AM</td>
+            <td>In-Person</td>
+            <td><span class="status confirmed">confirmed</span></td>
+            <td><button class="btn">View Details</button></td>
+          </tr>
+          <tr>
+            <td>APT-005</td>
+            <td>Lisa Brown</td>
+            <td>Dr. Emily Williams</td>
+            <td>2025-10-25</td>
+            <td>3:00 PM</td>
+            <td>In-Person</td>
+            <td><span class="status cancelled">cancelled</span></td>
+            <td><button class="btn">View Details</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
   </div>
 </body>
