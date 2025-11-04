@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin View Patients</title>
-  <link rel="stylesheet" href="#" />
+  <link rel="stylesheet" href="./admin_CSS/admin_viewPatients.css" />
   <link rel="stylesheet" href="../../css/global.css" />
   <link rel="stylesheet" href="../../css/sidebar.css" />
 </head>
@@ -47,6 +47,96 @@
     </aside>
 
     <!-- Main Content -->
+    <div class="main-content">
+        <h1 class="page-title">Patients</h1>
+
+        <input type="text" class="search-bar" placeholder="Search by name, email, or phone...">
+
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Age</th>
+              <th>Total Visits</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Sarah Johnson</td>
+              <td>sarah.j@email.com</td>
+              <td>+1 (555) 123-4567</td>
+              <td>32</td>
+              <td>12</td>
+              <td>
+                <div class="actions">
+                  <button class="btn">View</button>
+                  <button class="btn">Edit</button>
+                  <button class="btn deactivate">Deactivate</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Michael Chen</td>
+              <td>mchen@email.com</td>
+              <td>+1 (555) 234-5678</td>
+              <td>28</td>
+              <td>1</td>
+              <td>
+                <div class="actions">
+                  <button class="btn">View</button>
+                  <button class="btn">Edit</button>
+                  <button class="btn deactivate">Deactivate</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Emily Davis</td>
+              <td>emily.d@email.com</td>
+              <td>+1 (555) 345-6789</td>
+              <td>41</td>
+              <td>8</td>
+              <td>
+                <div class="actions">
+                  <button class="btn">View</button>
+                  <button class="btn">Edit</button>
+                  <button class="btn deactivate">Deactivate</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>John Smith</td>
+              <td>john.smith@email.com</td>
+              <td>+1 (555) 456-7890</td>
+              <td>45</td>
+              <td>15</td>
+              <td>
+                <div class="actions">
+                  <button class="btn">View</button>
+                  <button class="btn">Edit</button>
+                  <button class="btn deactivate">Deactivate</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Lisa Brown</td>
+              <td>lisa.brown@email.com</td>
+              <td>+1 (555) 567-8901</td>
+              <td>29</td>
+              <td>5</td>
+              <td>
+                <div class="actions">
+                  <button class="btn">View</button>
+                  <button class="btn">Edit</button>
+                  <button class="btn deactivate">Deactivate</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+     </div>
 
   </div>
 </body>
