@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin view Doctors</title>
-  <link rel="stylesheet" href="#" />
+  <link rel="stylesheet" href="./admin_CSS/admin_viewDoctors.css" />
   <link rel="stylesheet" href="../../css/global.css" />
   <link rel="stylesheet" href="../../css/sidebar.css" />
 </head>
@@ -47,7 +47,75 @@
     </aside>
 
     <!-- Main Content -->
+      <div class="main-content">
+        <div class="top-bar">
+          <h1 class="page-title">Doctors Management</h1>
+          <button class="btn primary">+ Add New Doctor</button>
+        </div>
 
+        <input type="text" class="search-bar" placeholder="Search by name, email, or specialty...">
+
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Specialty</th>
+              <th>Phone</th>
+              <th>Patients</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Dr. Sarah Johnson</td>
+              <td>sarah.johnson@hospital.com</td>
+              <td>Cardiologist</td>
+              <td>+1 (555) 123-4567</td>
+              <td>45</td>
+              <td><span class="status active">active</span></td>
+              <td>
+                <div class="actions">
+                  <button class="btn">View</button>
+                  <button class="btn">Edit</button>
+                  <button class="btn deactivate">Deactivate</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Dr. Michael Chen</td>
+              <td>michael.chen@hospital.com</td>
+              <td>General Practitioner</td>
+              <td>+1 (555) 234-5678</td>
+              <td>67</td>
+              <td><span class="status active">active</span></td>
+              <td>
+                <div class="actions">
+                  <button class="btn">View</button>
+                  <button class="btn">Edit</button>
+                  <button class="btn deactivate">Deactivate</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Dr. Emily Williams</td>
+              <td>emily.williams@hospital.com</td>
+              <td>Pediatrician</td>
+              <td>+1 (555) 345-6789</td>
+              <td>34</td>
+              <td><span class="status inactive">inactive</span></td>
+              <td>
+                <div class="actions">
+                  <button class="btn">View</button>
+                  <button class="btn">Edit</button>
+                  <button class="btn activate">Activate</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
   </div>
 </body>
 </html>

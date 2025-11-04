@@ -1,0 +1,179 @@
+  /* Main Content */
+    .main-content {
+      margin-left: 270px;
+      flex: 1;
+      padding: 30px;
+      background-color: #f9fbfd;
+      box-sizing: border-box;
+      overflow-y: auto;
+    }
+
+    .page-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    /* top-bar layout */
+    .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: nowrap; /* prefer single-line, will wrap via media query */
+    }
+
+    /* right-side group (search + button) */
+    .top-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    }
+
+    /* Button styles (keep your .btn.primary but ensure height matches search) */
+    .btn.primary {
+    background-color: #3a6b97;
+    color: white;
+    border-color: #3a6b97;
+    padding: 10px 18px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    cursor: pointer;
+    }
+
+    /* small visual tweak so the title doesn't wrap awkwardly */
+    .page-title {
+    margin: 0;
+    font-size: 22px;
+    line-height: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    }
+
+    /* Search Bar */
+    .search-bar {
+      width: 100%;
+      max-width: 450px;
+      padding: 10px 16px;
+      border: 1px solid #e3eaf2;
+      border-radius: 8px;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .search-bar:focus {
+      outline: none;
+      border-color: #3a6b97;
+    }
+
+    /* Table Styles */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    thead {
+      background-color: #cbdcec;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 14px 16px;
+      border-bottom: 1px solid #e3eaf2;
+      font-size: 14px;
+      color: #333;
+    }
+
+    th {
+      font-weight: 600;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    tbody tr:hover {
+      background-color: #f9fbfd;
+    }
+
+    /* Status badges */
+    .status {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .status.active {
+      background-color: #d9f6e3;
+      color: #2e7d32;
+    }
+
+    .status.inactive {
+      background-color: #f0f0f0;
+      color: #666;
+    }
+
+    /* Action Buttons */
+    .actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn {
+      padding: 6px 14px;
+      border: 1px solid #e3eaf2;
+      border-radius: 6px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background-color: white;
+      color: #333;
+    }
+
+    .btn:hover {
+      background-color: #f9fbfd;
+      border-color: #3a6b97;
+    }
+
+    .btn.deactivate {
+      color: #c62828;
+      border-color: #f8d7da;
+    }
+
+    .btn.deactivate:hover {
+      background-color: #fff5f5;
+    }
+
+    .btn.activate {
+      color: #2e7d32;
+      border-color: #d9f6e3;
+    }
+
+    .btn.activate:hover {
+      background-color: #f1f9f3;
+    }
+
+    .btn.primary {
+      background-color: #3a6b97;
+      color: white;
+      border-color: #3a6b97;
+      padding: 10px 20px;
+    }
+
+    .btn.primary:hover {
+      background-color: #2d5577;
+    }
+
+    
