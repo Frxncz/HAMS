@@ -1,4 +1,46 @@
+    /* Import Google Font: Inter */
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
+    /* Global Font and Base Colors */
+    body {
+        font-family: "Inter", sans-serif;
+        background-color: #ffffff;
+        color: #1a1a1a;
+        line-height: 1.6;
+    }
+
+    /* Headings */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: 700;
+        color: #1e3a8a;
+    }
+
+    /* Paragraphs */
+    p {
+        font-size: 16px;
+        color: #4b5563;
+    }
+
+    /* Links */
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    /* Buttons */
+    button {
+        font-family: "Inter", sans-serif;
+        cursor: pointer;
+        border: none;
+        outline: none;
+    }
+
+    
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       height: 100vh;

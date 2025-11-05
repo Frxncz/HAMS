@@ -50,13 +50,15 @@
 
     /* Form Section - Centered */
     .form-section {
-      background-color: #ffffff;
-      padding: 50px;
-      border-radius: 16px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-      max-width: 600px;
-      width: 100%;
+    background-color: #ffffff;
+    padding: 50px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    max-width: 600px;
+    width: 100%;
+    transform: translateY(-30px); /* ✅ Moves the form slightly upward */
     }
+
 
     .form-container {
       width: 100%;
@@ -212,24 +214,28 @@
 
     /* Sign In Link */
     .signin-link {
-      width: 100%;
-      padding: 13px;
-      background-color: white;
-      color: #4a7c9e;
-      border: 1px solid #e5e7eb;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      text-decoration: none;
-      display: block;
-      text-align: center;
+    width: 100%;
+    padding: 14px 0;
+    background-color: #ffffff;
+    color: #4a7c9e;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: flex;               /* ✅ centers text vertically & horizontally */
+    align-items: center;
+    justify-content: center;
+    text-align: center;          /* ✅ ensure multi-line centering */
+    line-height: 1;              /* ✅ prevents vertical offset */
+    margin-bottom: 20px;
     }
 
     .signin-link:hover {
-      background-color: #f9fafb;
-      border-color: #4a7c9e;
+    background-color: #f9fafb;
+    border-color: #4a7c9e;
     }
 
     /* Responsive */
