@@ -39,23 +39,23 @@
 
 
       <nav class="menu">
-        <a href="./patient_dashboard.html" class="menu-item active">
+        <a href="./patient_settings.php" class="menu-item active">
           <img src="../../assets/icons/patientsDashboard/Home.svg" alt="home icon">
           Home
         </a>
-        <a href="./patient_find-doctor.html" class="menu-item">
+        <a href="./patient_find-doctor.php" class="menu-item">
           <img src="../../assets/icons/patientsDashboard/findDoctor.svg" alt="doctor icon">
           Find Doctor
         </a>
-        <a href="./patient_myConsultation.html" class="menu-item">
+        <a href="./patient_myConsultation.php" class="menu-item">
           <img src="../../assets/icons/patientsDashboard/myConsultation.svg" alt="consultations icon">
           My Consultations
         </a>
-        <a href="./patient_bookingHistory.html" class="menu-item">
+        <a href="./patient_bookingHistory.php" class="menu-item">
           <img src="../../assets/icons/patientsDashboard/bookingHistory.svg" alt="history icon">
           Booking History
         </a>
-        <a href="./patient_settings.html" class="menu-item">
+        <a href="./patient_settings.php" class="menu-item">
           <img src="../../assets/icons/patientsDashboard/setting.svg" alt="settings icon">
           Account Settings
         </a>

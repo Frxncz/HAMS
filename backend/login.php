@@ -40,7 +40,7 @@ if ($doctor_result->num_rows > 0) {
         $_SESSION['user_id'] = $doctor_data['id'];
         $_SESSION['user_type'] = 'doctor';
         $_SESSION['name'] = $doctor_data['name'];
-        header("Location: ../pages/doctorDashboard/doctor_dashboard.html");
+        header("Location: ../pages/doctorDashboard/doctor_dashboard.php");
         exit();
     }
 }
