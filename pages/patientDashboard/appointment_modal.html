@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointment Modal</title>
+  <link rel="stylesheet" href="../patient_CSS/modal.css">
+</head>
+<body>
+  <!-- Modal -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal" role="dialog" aria-modal="true">
+      <h3>Schedule Appointment</h3>
+      <form id="scheduleForm" method="post" action="../../backend/patient_backend/create_appointment.php">
+        <div class="row">
+          <label for="doctor_id">Doctor</label>
+          <select name="doctor_id" id="doctor_id" required>
+            <option value="">-- Select Doctor --</option>
+            <?php foreach($doctors as $d): ?>
+              <option value="<?php echo $d['docid']; ?>">
+                <?php echo htmlspecialchars($d['name']); ?>
+              </option>
+            <?php endforeach; ?>
+          </select>
+        </div>
+        <div class="row">
+          <label for="appt_date">Date</label>
+          <input type="date" id="appt_date" name="appt_date" required min="<?php echo date('Y-m-d'); ?>">
+        </div>
+        <div class="row">
+          <label for="appt_time">Time</label>
+          <input type="time" id="appt_time" name="appt_time" required>
+        </div>
+        <div class="row">
+          <label for="purpose">Purpose of Visit</label>
+          <select id="purpose" name="purpose" required>
+            <option value="">-- Select purpose --</option>
+            <option value="regular">Regular</option>
+            <option value="new_patient">New patient</option>
+            <option value="follow_up">Follow up checkup</option>
+          </select>
+        </div>
+
+        <div class="actions">
+          <button type="button" class="btn ghost" id="cancelModal">Cancel</button>
+          <button type="submit" class="btn primary">Schedule</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../patient_JS/modal.js"></script>
+</body>
+</html>

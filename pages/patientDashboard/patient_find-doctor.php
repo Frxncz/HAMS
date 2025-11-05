@@ -70,30 +70,10 @@
         <div class="doctor-list">
             <div class="doctor-card">
             <div class="doctor-info">
-                <h2>Dr. Sarah Johnson</h2>
-                <p class="specialty">Cardiologist</p>
+                <h2>Dorctor Name</h2>
+                <p class="specialty">Specialty </p>
                 <p class="hospital"><img src="../../assets/icons/patientsDashboard/location.svg" alt="location icon">Medical Center A</p>
                 <p class="availability"><img src="../../assets/icons/patientsDashboard/time.svg" alt="time icon">Available Today</p>
-            </div>
-            <button class="book-btn">Book Appointment</button>
-            </div>
-
-            <div class="doctor-card">
-            <div class="doctor-info">
-                <h2>Dr. Michael Chen</h2>
-                <p class="specialty">General Practitioner</p>
-                <p class="hospital"><img src="../../assets/icons/patientsDashboard/location.svg" alt="location icon">Health Clinic B</p>
-                <p class="availability"><img src="../../assets/icons/patientsDashboard/time.svg" alt="time icon">vailable Tomorrow</p>
-            </div>
-            <button class="book-btn">Book Appointment</button>
-            </div>
-
-            <div class="doctor-card">
-            <div class="doctor-info">
-                <h2>Dr. Emily Williams</h2>
-                <p class="specialty">Pediatrician</p>
-                <p class="hospital"><img src="../../assets/icons/patientsDashboard/location.svg" alt="location icon">Children's Hospital</p>
-                <p class="availability"><img src="../../assets/icons/patientsDashboard/time.svg" alt="time icon">Available This Week</p>
             </div>
             <button class="book-btn">Book Appointment</button>
             </div>

@@ -1,0 +1,184 @@
+/* Modal backdrop overlay */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  backdrop-filter: blur(2px);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Modal container */
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 420px;
+  max-width: 94%;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.3s ease;
+  position: relative;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Modal header */
+.modal h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Form rows */
+.modal .row {
+  margin-bottom: 16px;
+}
+
+/* Form labels */
+.modal label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+/* Form inputs and selects */
+.modal select,
+.modal input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modal select:focus,
+.modal input:focus {
+  outline: none;
+  border-color: #3a6b97;
+  box-shadow: 0 0 0 3px rgba(58, 107, 151, 0.1);
+}
+
+.modal select:hover,
+.modal input:hover {
+  border-color: #999;
+}
+
+/* Form actions (button container) */
+.modal .actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+/* Button base styles */
+.modal .btn {
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.modal .btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.modal .btn:active {
+  transform: translateY(0);
+}
+
+/* Primary button */
+.btn.primary {
+  background: #3a6b97;
+  color: white;
+}
+
+.btn.primary:hover {
+  background: #2d5578;
+}
+
+/* Ghost button */
+.btn.ghost {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.btn.ghost:hover {
+  background: #e0e0e0;
+}
+
+/* Success/Error Messages */
+.message {
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  border-left: 4px solid;
+}
+
+.message.success {
+  background: #dff3e6;
+  color: #1b6e1b;
+  border-color: #1b6e1b;
+}
+
+.message.error {
+  background: #fdecea;
+  color: #b02a2a;
+  border-color: #b02a2a;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .modal {
+    width: 95%;
+    padding: 16px;
+  }
+
+  .modal h3 {
+    font-size: 20px;
+  }
+
+  .modal .actions {
+    flex-direction: column;
+  }
+
+  .modal .btn {
+    width: 100%;
+  }
+}

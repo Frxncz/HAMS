@@ -79,39 +79,21 @@
           </thead>
           <tbody>
             <tr>
-              <td>APT-001</td>
-              <td>Dr. Sarah Johnson</td>
-              <td>Cardiologist</td>
+              <td>APT-000</td>
+              <td>Doctor Name 1</td>
+              <td>Specialty</td>
               <td>2024-12-15</td>
               <td>14:00</td>
               <td><span class="status completed">completed</span></td>
               <td><button class="action-btn">Book Again</button></td>
             </tr>
             <tr>
-              <td>APT-002</td>
-              <td>Dr. Michael Chen</td>
-              <td>General Practitioner</td>
-              <td>2024-11-20</td>
-              <td>10:30</td>
-              <td><span class="status completed">completed</span></td>
-              <td><button class="action-btn">Book Again</button></td>
-            </tr>
-            <tr>
-              <td>APT-003</td>
-              <td>Dr. Emily Williams</td>
-              <td>Pediatrician</td>
+              <td>APT-000</td>
+              <td>Doctor Name 2</td>
+              <td>Specialty</td>
               <td>2024-10-10</td>
               <td>16:00</td>
               <td><span class="status cancelled">cancelled</span></td>
-              <td><button class="action-btn">Book Again</button></td>
-            </tr>
-            <tr>
-              <td>APT-004</td>
-              <td>Dr. Sarah Johnson</td>
-              <td>Cardiologist</td>
-              <td>2024-09-05</td>
-              <td>14:30</td>
-              <td><span class="status completed">completed</span></td>
               <td><button class="action-btn">Book Again</button></td>
             </tr>
           </tbody>

@@ -40,7 +40,7 @@ if ($doctor_result->num_rows > 0) {
         $_SESSION['user_id'] = $doctor_data['id'];
         $_SESSION['user_type'] = 'doctor';
         $_SESSION['name'] = $doctor_data['name'];
-        header("Location: ../pages/doctorDashboard/doctor_dashboard.php");
+        header("Location: ../pages/doctorDashboard/doctor_dashboard.html");
         exit();
     }
 }
@@ -55,7 +55,7 @@ if ($patient_result->num_rows > 0) {
     $patient_data = $patient_result->fetch_assoc();
 
     if (password_verify($password, $patient_data['password'])) {
-        $_SESSION['user_id'] = $patient_data['id']; // or 'pid' if that's your column
+        $_SESSION['user_id'] = $patient_data['pid']; // or 'pid' if that's your column
         $_SESSION['user_type'] = 'patient';
         $_SESSION['name'] = $patient_data['first_name'] . ' ' . $patient_data['last_name'];
         $_SESSION['email'] = $patient_data['email'];

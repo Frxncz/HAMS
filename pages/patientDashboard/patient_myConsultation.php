@@ -66,8 +66,8 @@
   <div class="consultation-card">
     <div class="consultation-header">
       <div>
-        <h2>Dr. Sarah Johnson</h2>
-        <p class="specialty">Cardiology</p>
+        <h2>Doctor Name</h2>
+        <p class="specialty">Specialty </p>
       </div>
       <span class="status confirmed">confirmed</span>
     </div>
@@ -76,27 +76,6 @@
       <p><img src="../../assets/icons/patientsDashboard/date.svg" alt="date icon"> 2025-01-15</p>
       <p><img src="../../assets/icons/patientsDashboard/time.svg" alt="time icon"> 10:30</p>
       <p><img src="../../assets/icons/patientsDashboard/location.svg" alt="location icon"> Main Clinic - Room 203</p>
-    </div>
-
-    <div class="consultation-actions">
-      <button class="view-btn">View Details</button>
-      <button class="cancel-btn">Cancel</button>
-    </div>
-  </div>
-
-  <div class="consultation-card">
-    <div class="consultation-header">
-      <div>
-        <h2>Dr. Michael Chen</h2>
-        <p class="specialty">General Practitioner</p>
-      </div>
-      <span class="status confirmed">confirmed</span>
-    </div>
-
-    <div class="consultation-details">
-      <p><img src="../../assets/icons/patientsDashboard/date.svg" alt="date icon"> 2025-01-20</p>
-      <p><img src="../../assets/icons/patientsDashboard/time.svg" alt="time icon"> 14:00</p>
-      <p><img src="../../assets/icons/patientsDashboard/location.svg" alt="location icon"> Main Clinic - Room 105</p>
     </div>
 
     <div class="consultation-actions">
