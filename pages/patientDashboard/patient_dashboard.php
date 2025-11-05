@@ -1,3 +1,15 @@
+<?php
+  session_start();
+
+  // Redirect to login if not logged in
+  if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'patient') {
+    header("Location: ../../login.html");
+    exit();
+  }
+
+  $patient_name = $_SESSION['name'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,18 +21,22 @@
   <link rel="stylesheet" href="../../css/sidebar.css" />
 </head>
 <body>
+
   <div class="container">
 
     <!-- Sidebar -->
     <aside class="sidebar">
+
       <div class="profile">
-        <div class="avatar">PN</div>
-        <h2>Patient Name</h2>
+        <div class="avatar"><?php echo strtoupper(substr($patient_name, 0, 2)); ?></div>
+        <h2><?php echo htmlspecialchars($patient_name); ?></h2>
       </div>
-      <button class="logout-btn">
+
+      <button class="logout-btn" onclick="window.location.href='../../backend/logout.php'">
         <img src="../../assets/icons/patientsDashboard/logout.svg" alt="logout icon">
         Log out
       </button>
+
 
       <nav class="menu">
         <a href="./patient_dashboard.html" class="menu-item active">
@@ -50,7 +66,7 @@
     <main class="main-content">
       <section class="welcome">
         <h2>Welcome!</h2>
-        <p class="patient-name">Patient Name</p>
+        <p class="patient-name"><?php echo htmlspecialchars($patient_name); ?></p>
         <p>We're glad you're here! Regular visits help us better understand your needs and provide the best care possible. Book your next appointment today so we can continue supporting your health journey together.</p>
         <button class="schedule-btn">Schedule Now</button>
       </section>
