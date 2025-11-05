@@ -7,79 +7,81 @@
     <title>Signup</title>
 </head>
 <body>
-    <!--Left section-->
-    <div class="left-section">
-        <div class="image-wrapper">
-            <img src="" alt="left section image">
+  <div class="login-container">
+    <!-- Back Button -->
+    <a href="./index.html" class="back-button">
+      <img src="./assets/icons/patientsDashboard/logout.svg" alt="back icon">
+      Back
+    </a>
+
+    <!-- Form Section - Centered -->
+    <div class="form-section">
+      <div class="form-container">
+        <!-- Logo -->
+        <div class="logo">
+          <img src="./assets/images/landing-page_assests/Logo-removebg-preview.png" alt="Logo">
         </div>
-    </div>
 
-    <!--Right section-->
-    <div class="right-section">
-        <div class="signup-box">
-            <div class="icon">
-                <img src="" alt="stethoscope ison">
+        <!-- Welcome Text -->
+        <div class="welcome-text">Create Account</div>
+        <div class="subtitle">Join us to get started with healthcare services</div>
+
+        <!-- First Name and Last Name -->
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">First Name</label>
+            <div class="input-wrapper">
+              <img class="input-icon" src="./assets/icons/adminDashboard/profile.svg" alt="user icon">
+              <input type="text" class="form-input" placeholder="John">
             </div>
+          </div>
 
-            <h2>Create Account</h2>
-            <p>Join us to get started with health care services</p>
-
-            <div class="role-select">
-            <button class="role active">Patient</button>
-            <button class="role">Doctor</button>
-            <button class="role">Admin</button>
+          <div class="form-group">
+            <label class="form-label">Last Name</label>
+            <div class="input-wrapper">
+              <img class="input-icon" src="./assets/icons/adminDashboard/profile.svg" alt="user icon">
+              <input type="text" class="form-input" placeholder="Doe">
             </div>
-
-            <form>
-
-            <!-- Name Fields -->
-            <div class="name-row">
-                <div class="input-group">
-                <label>First Name</label>
-                <div class="input-box">
-                    <input type="text" placeholder="John" required>
-                </div>
-            </div>
-
-            <div class="input-group">
-              <label>Last Name</label>
-              <div class="input-box">
-                <input type="text" placeholder="Doe" required>
-              </div>
-            </div>
-
-            <!-- Email -->
-            <div class="input-group">
-                <label>Email Address</label>
-                <div class="input-box">
-                    <input type="email" placeholder="john.doe@example.com" required>
-                </div>
-            </div>
-
-            <!-- Password -->
-            <div class="input-group">
-                <label>Password</label>
-                <div class="input-box">
-                    <input type="password" placeholder="Create a strong password" required>
-                </div>
-            </div>
-
-            <!-- Terms -->
-            <div class="checkbox-group">
-                <input type="checkbox" id="terms" required>
-                <label for="terms">I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a></label>
-            </div>
-
-            <!-- Create Account Button -->
-            <button type="submit" class="signup-btn">Create Account</button>
-            </form>
-
-            <div class="signin-link">
-            <p>Already have an account?</p>
-            <a href="login.html">Sign In Instead</a>
-
-
+          </div>
         </div>
+
+        <!-- Email Input -->
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <div class="input-wrapper">
+            <img class="input-icon" src="./assets/icons/adminDashboard/email.svg" alt="email icon">
+            <input type="email" class="form-input" placeholder="john.doe@example.com">
+          </div>
+        </div>
+
+        <!-- Password Input -->
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <div class="input-wrapper">
+            <img class="input-icon" src="./assets/icons/adminDashboard/lock.svg" alt="lock icon">
+            <input type="password" class="form-input" placeholder="Create a strong password">
+          </div>
+        </div>
+
+        <!-- Terms and Conditions Checkbox -->
+        <div class="checkbox-group">
+          <input type="checkbox" class="checkbox-input" id="terms">
+          <label class="checkbox-label" for="terms">
+            I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>
+          </label>
+        </div>
+
+        <!-- Create Account Button -->
+        <button class="btn-signup">Create Account</button>
+
+        <!-- Divider -->
+        <div class="divider">Already have an account?</div>
+
+        <!-- Sign In Link -->
+        <a href="#" class="signin-link">Sign In Instead</a>
+      </div>
     </div>
+  </div>
+
 </body>
 </html>
