@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/login.css" />
-    <title>Login</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/login.css" />
+  <title>Login</title>
 </head>
 <body>
 
-    <!-- Back Button -->
-    <a href="./index.html" class="back-button">
-      <img src="./assets/icons/patientsDashboard/logout.svg" alt="back icon">
-      Back
-    </a>
-    
+  <!-- Back Button -->
+  <a href="./index.html" class="back-button">
+    <img src="./assets/icons/patientsDashboard/logout.svg" alt="back icon">
+    Back
+  </a>
+  
   <div class="login-container">
 
     <!-- Form Section - Centered -->
@@ -28,29 +28,42 @@
         <div class="welcome-text">Welcome Back</div>
         <div class="subtitle">Sign in to continue to your dashboard</div>
 
-        <!-- Email Input -->
-        <div class="form-group">
-          <label class="form-label">Email Address</label>
-          <div class="input-wrapper">
-            <img class="input-icon" src="./assets/icons/adminDashboard/email.svg" alt="email icon">
-            <input type="email" class="form-input" placeholder="Enter your email">
+        <form action="./backend/login.php" method="POST">
+          
+          <!-- Email Input -->
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <div class="input-wrapper">
+              <img class="input-icon" src="./assets/icons/adminDashboard/email.svg" alt="email icon">
+              <input 
+                type="email" 
+                class="form-input" 
+                name="email" 
+                placeholder="Enter your email" 
+                required>
+            </div>
           </div>
-        </div>
 
-        <!-- Password Input -->
-        <div class="form-group">
-          <label class="form-label">
-            Password
-            <a href="#" class="forgot-link">Forgot password?</a>
-          </label>
-          <div class="input-wrapper">
-            <img class="input-icon" src="./assets/icons/adminDashboard/lock.svg" alt="lock icon">
-            <input type="password" class="form-input" placeholder="Enter your password">
+          <!-- Password Input -->
+          <div class="form-group">
+            <label class="form-label">
+              Password
+              <a href="#" class="forgot-link">Forgot password?</a>
+            </label>
+            <div class="input-wrapper">
+              <img class="input-icon" src="./assets/icons/adminDashboard/lock.svg" alt="lock icon">
+              <input 
+                type="password" 
+                class="form-input" 
+                name="password" 
+                placeholder="Enter your password" 
+                required>
+            </div>
           </div>
-        </div>
 
-        <!-- Sign In Button -->
-        <button class="btn-signin">Sign In</button>
+          <!-- Sign In Button -->
+          <button type="submit" class="btn-signin">Sign In</button>
+        </form>
 
         <!-- Divider -->
         <div class="divider">Don't have an account?</div>
