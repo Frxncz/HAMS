@@ -85,6 +85,15 @@ $stmt->close();
     <main class="main-content">
       <h1>My Appointments</h1>
 
+    <?php if (isset($_SESSION['appt_success'])): ?>
+      <div class="message success"><?php echo $_SESSION['appt_success']; unset($_SESSION['appt_success']); ?></div>
+    <?php endif; ?>
+
+    <?php if (isset($_SESSION['appt_error'])): ?>
+      <div class="message error"><?php echo $_SESSION['appt_error']; unset($_SESSION['appt_error']); ?></div>
+    <?php endif; ?>
+
+
       <?php if (count($appointments) === 0): ?>
         <p>No appointments found.</p>
       <?php else: ?>
@@ -107,7 +116,7 @@ $stmt->close();
             </div>
 
             <div class="consultation-actions">
-            <button class="view-btn" onclick='openDetailsModal(<?php echo json_encode($appt); ?>)'> View Details </button>
+              <button class="edit-btn" onclick='openEditModal(<?php echo json_encode($appt); ?>)'>Edit Appointment</button>
               <button class="cancel-btn" onclick="cancelAppointment(<?php echo $appt['id']; ?>)">Cancel</button>
             </div>
           </div>
@@ -116,41 +125,52 @@ $stmt->close();
     </main>
   </div>
 
-  <!-- Modal Form -->
-  <div id="detailsForm" class="modal-backdrop">
-    <div class="modal">
-      <h3>Appointment Information</h3>
-      <form id="apptDetailsForm">
-        <div class="form-group">
-          <label>Doctor's Name</label>
-          <input type="text" id="doctor_name" readonly>
-        </div>
-        <div class="form-group">
-          <label>Specialty</label>
-          <input type="text" id="specialty" readonly>
-        </div>
-        <div class="form-group">
-          <label>Date</label>
-          <input type="text" id="appt_date" readonly>
-        </div>
-        <div class="form-group">
-          <label>Time</label>
-          <input type="text" id="appt_time" readonly>
-        </div>
-        <div class="form-group">
-          <label>Purpose</label>
-          <input type="text" id="purpose" readonly>
-        </div>
-        <div class="form-group">
-          <label>Status</label>
-          <input type="text" id="status" readonly>
-        </div>
-        <div class="actions">
-          <button type="button" class="btn ghost" onclick="closeForm()">Close</button>
-        </div>
-      </form>
-    </div>
+<!-- Edit Appointment Modal -->
+<div id="editModal" class="modal-backdrop">
+  <div class="modal">
+    <h3>Edit Appointment</h3>
+    <form id="editForm" method="POST" action="../../backend/patient_backend/update_appointment.php">
+
+      <input type="hidden" name="id" id="edit_id">
+
+      <div class="row">
+        <label for="edit_doctor">Doctor</label>
+        <input type="text" id="edit_doctor" name="doctor_name" readonly>
+      </div>
+
+      <div class="row">
+        <label for="edit_specialty">Specialty</label>
+        <input type="text" id="edit_specialty" name="specialty" readonly>
+      </div>
+
+      <div class="row">
+        <label for="edit_date">Appointment Date</label>
+        <input type="date" id="edit_date" name="appt_date" required>
+      </div>
+
+      <div class="row">
+        <label for="edit_time">Appointment Time</label>
+        <input type="time" id="edit_time" name="appt_time" required>
+      </div>
+
+      <div class="row">
+        <label for="edit_purpose">Purpose of Visit</label>
+        <select id="edit_purpose" name="purpose" required>
+          <option value="regular">Regular</option>
+          <option value="new_patient">New Patient</option>
+          <option value="follow_up">Follow Up Checkup</option>
+        </select>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="btn ghost" onclick="closeEditModal()">Cancel</button>
+        <button type="submit" class="btn primary">Save Changes</button>
+      </div>
+    </form>
   </div>
+</div>
+
+
 
   <script src="./patient_JS/patient_myConsultation.js"></script>
 </body>

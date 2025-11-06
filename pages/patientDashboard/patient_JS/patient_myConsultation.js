@@ -35,3 +35,20 @@ document.addEventListener("click", (e) => {
   const modal = document.getElementById("detailsModal");
   if (e.target === modal) closeModal();
 });
+
+function openEditModal(appt) {
+  document.getElementById("editModal").style.display = "flex";
+  document.getElementById("edit_id").value = appt.id;
+  document.getElementById("edit_doctor").value = appt.doctor_name;
+  document.getElementById("edit_specialty").value = appt.specialty ?? "General Practitioner";
+  document.getElementById("edit_date").value = appt.appt_date;
+  document.getElementById("edit_time").value = appt.appt_time;
+
+  // Set selected purpose
+  const purposeSelect = document.getElementById("edit_purpose");
+  purposeSelect.value = appt.purpose;
+}
+
+function closeEditModal() {
+  document.getElementById("editModal").style.display = "none";
+}
