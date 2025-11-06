@@ -104,9 +104,6 @@ $stmt->close();
                 <h2><?php echo htmlspecialchars($appt['doctor_name']); ?></h2>
                 <p class="specialty"><?php echo htmlspecialchars($appt['specialty'] ?? 'General Practitioner'); ?></p>
               </div>
-              <span class="status <?php echo strtolower($appt['status']); ?>">
-                <?php echo htmlspecialchars($appt['status']); ?>
-              </span>
             </div>
 
             <div class="consultation-details">

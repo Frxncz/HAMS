@@ -43,21 +43,20 @@
 /* Doctor List */
 .doctor-list {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
 /* Doctor Card */
 .doctor-card {
-  background-color: white;
-  border: 1px solid #e1e6eb;
+  background: #fff;
+  border: 1px solid #e0e6ef;
   border-radius: 10px;
-  padding: 20px 25px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: box-shadow 0.2s ease;
+  padding: 20px;
+  width: 280px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
+
 
 .doctor-card:hover {
   box-shadow: 0 2px 10px rgba(58, 107, 151, 0.15);
