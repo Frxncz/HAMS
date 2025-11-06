@@ -16,11 +16,13 @@ CREATE TABLE doctor (
   docid INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(100),
   email VARCHAR(255) UNIQUE,
-  password VARCHAR(255)
+  password VARCHAR(255),
+  specialty VARCHAR(100) DEFAULT 'General Practitioner'
 ) ENGINE=InnoDB;
 
-INSERT INTO doctor (name, email, password) VALUES
-('Dr. John Doe', 'doctor@hams.com', '12345');
+INSERT INTO doctor (name, email, password, specialty) VALUES
+('Dr. John Doe', 'doctor@hams.com', '12345', 'Cardiologist'),
+('Dr. Sarah Cruz', 'sarah@hams.com', '12345', 'Dermatologist');
 
 -- Patient table
 CREATE TABLE patient (
@@ -31,11 +33,11 @@ CREATE TABLE patient (
   password VARCHAR(255)
 ) ENGINE=InnoDB;
 
--- ✅ Appointments table (fixed)
+-- ✅ Appointments table
 CREATE TABLE IF NOT EXISTS appointments (
   id INT AUTO_INCREMENT PRIMARY KEY,
   patient_id INT NOT NULL,
-  doctor_id INT,  -- make this NULLABLE because of ON DELETE SET NULL
+  doctor_id INT,
   appt_date DATE NOT NULL,
   appt_time TIME NOT NULL,
   purpose ENUM('regular','new_patient','follow_up') NOT NULL,

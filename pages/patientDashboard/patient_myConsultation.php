@@ -1,41 +1,63 @@
 <?php
-  session_start();
+session_start();
+if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'patient') {
+  header("Location: ../../login.html");
+  exit();
+}
 
-  // Redirect to login if not logged in
-  if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'patient') {
-    header("Location: ../../login.html");
-    exit();
-  }
+include('../../backend/db_connect.php');
+$patient_id = $_SESSION['user_id'];
+$patient_name = $_SESSION['name'];
 
-  $patient_name = $_SESSION['name'];
+// Fetch appointments
+$stmt = $conn->prepare("SELECT a.id, a.appt_date, a.appt_time, a.purpose, a.status,
+                               d.name AS doctor_name, d.specialty
+                        FROM appointments a
+                        JOIN doctor d ON a.doctor_id = d.docid
+                        WHERE a.patient_id = ?
+                        ORDER BY a.appt_date DESC");
+$stmt->bind_param("i", $patient_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$appointments = $result->fetch_all(MYSQLI_ASSOC);
+$stmt->close();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Patient My Consultation</title>
+  <title>My Appointments</title>
   <link rel="stylesheet" href="./patient_CSS/patient_myConsultation.css" />
   <link rel="stylesheet" href="../../css/global.css" />
   <link rel="stylesheet" href="../../css/sidebar.css" />
+  <script src="./patient_JS/patient_myConsultation.js"></script>
+
 </head>
 <body>
-  <div class="container">
 
+    <!-- Appointment Details Modal -->
+  <div id="detailsModal" class="modal-backdrop">
+    <div class="modal">
+      <h3>Appointment Details</h3>
+      <div id="modalContent"></div>
+      <div class="actions">
+        <button class="btn ghost" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
     <!-- Sidebar -->
     <aside class="sidebar">
       <div class="profile">
-        <div class="avatar"><?php echo strtoupper(substr($patient_name, 0, 2)); ?></div>
+        <div class="avatar"><?php echo strtoupper(substr($patient_name,0,2)); ?></div>
         <h2><?php echo htmlspecialchars($patient_name); ?></h2>
       </div>
-
       <button class="logout-btn" onclick="window.location.href='../../backend/logout.php'">
-        <img src="../../assets/icons/patientsDashboard/logout.svg" alt="logout icon">
-        Log out
+        <img src="../../assets/icons/patientsDashboard/logout.svg" alt="logout icon"> Log out
       </button>
-
-      <nav class="menu">
+            <nav class="menu">
         <a href="./patient_dashboard.php" class="menu-item">
           <img src="../../assets/icons/patientsDashboard/Home.svg" alt="home icon">
           Home
@@ -59,32 +81,77 @@
       </nav>
     </aside>
 
-<!-- Main Content -->
-<main class="main-content">
-  <h1>My Consultations</h1>
+    <!-- Main Content -->
+    <main class="main-content">
+      <h1>My Appointments</h1>
 
-  <div class="consultation-card">
-    <div class="consultation-header">
-      <div>
-        <h2>Doctor Name</h2>
-        <p class="specialty">Specialty </p>
-      </div>
-      <span class="status confirmed">confirmed</span>
-    </div>
+      <?php if (count($appointments) === 0): ?>
+        <p>No appointments found.</p>
+      <?php else: ?>
+        <?php foreach ($appointments as $appt): ?>
+          <div class="consultation-card">
+            <div class="consultation-header">
+              <div>
+                <h2><?php echo htmlspecialchars($appt['doctor_name']); ?></h2>
+                <p class="specialty"><?php echo htmlspecialchars($appt['specialty'] ?? 'General Practitioner'); ?></p>
+              </div>
+              <span class="status <?php echo strtolower($appt['status']); ?>">
+                <?php echo htmlspecialchars($appt['status']); ?>
+              </span>
+            </div>
 
-    <div class="consultation-details">
-      <p><img src="../../assets/icons/patientsDashboard/date.svg" alt="date icon"> 2025-01-15</p>
-      <p><img src="../../assets/icons/patientsDashboard/time.svg" alt="time icon"> 10:30</p>
-      <p><img src="../../assets/icons/patientsDashboard/location.svg" alt="location icon"> Main Clinic - Room 203</p>
-    </div>
+            <div class="consultation-details">
+              <p><strong>Date:</strong> <?php echo htmlspecialchars($appt['appt_date']); ?></p>
+              <p><strong>Time:</strong> <?php echo htmlspecialchars(substr($appt['appt_time'], 0, 5)); ?></p>
+              <p><strong>Purpose:</strong> <?php echo htmlspecialchars($appt['purpose']); ?></p>
+            </div>
 
-    <div class="consultation-actions">
-      <button class="view-btn">View Details</button>
-      <button class="cancel-btn">Cancel</button>
+            <div class="consultation-actions">
+            <button class="view-btn" onclick='openDetailsModal(<?php echo json_encode($appt); ?>)'> View Details </button>
+              <button class="cancel-btn" onclick="cancelAppointment(<?php echo $appt['id']; ?>)">Cancel</button>
+            </div>
+          </div>
+        <?php endforeach; ?>
+      <?php endif; ?>
+    </main>
+  </div>
+
+  <!-- Modal Form -->
+  <div id="detailsForm" class="modal-backdrop">
+    <div class="modal">
+      <h3>Appointment Information</h3>
+      <form id="apptDetailsForm">
+        <div class="form-group">
+          <label>Doctor's Name</label>
+          <input type="text" id="doctor_name" readonly>
+        </div>
+        <div class="form-group">
+          <label>Specialty</label>
+          <input type="text" id="specialty" readonly>
+        </div>
+        <div class="form-group">
+          <label>Date</label>
+          <input type="text" id="appt_date" readonly>
+        </div>
+        <div class="form-group">
+          <label>Time</label>
+          <input type="text" id="appt_time" readonly>
+        </div>
+        <div class="form-group">
+          <label>Purpose</label>
+          <input type="text" id="purpose" readonly>
+        </div>
+        <div class="form-group">
+          <label>Status</label>
+          <input type="text" id="status" readonly>
+        </div>
+        <div class="actions">
+          <button type="button" class="btn ghost" onclick="closeForm()">Close</button>
+        </div>
+      </form>
     </div>
   </div>
-</main>
 
-  </div>
+  <script src="./patient_JS/patient_myConsultation.js"></script>
 </body>
 </html>
