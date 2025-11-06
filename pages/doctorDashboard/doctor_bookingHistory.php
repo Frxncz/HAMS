@@ -1,3 +1,12 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'doctor') {
+    header('Location: ../../login.html');
+    exit();
+}
+$doctor_name = $_SESSION['name'] ?? 'Doctor Name';
+$avatar = strtoupper(substr($doctor_name, 0, 2));
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,32 +23,32 @@
     <!-- Sidebar -->
     <aside class="sidebar">
       <div class="profile">
-        <div class="avatar">DN</div>
-        <h2>Doctor Name</h2>
+        <div class="avatar"><?php echo htmlspecialchars($avatar); ?></div>
+        <h2><?php echo htmlspecialchars($doctor_name); ?></h2>
       </div>
-      <button class="logout-btn">
+      <button class="logout-btn" onclick="window.location.href='../../backend/logout.php'">
         <img src="../../assets/icons/patientsDashboard/logout.svg" alt="logout icon">
         Log out
       </button>
 
       <nav class="menu">
-        <a href="./doctor_dashboard.html" class="menu-item">
+        <a href="./doctor_dashboard.php" class="menu-item">
           <img src="../../assets/icons/patientsDashboard/Home.svg" alt="home icon">
           Dashboard
         </a>
-        <a href="./doctor_myAppointments.html" class="menu-item">
+        <a href="./doctor_myAppointments.php" class="menu-item">
           <img src="../../assets/icons/patientsDashboard/findDoctor.svg" alt="appointments icon">
           My Appointments
         </a>
-        <a href="./doctor_mySessions.html" class="menu-item">
+        <a href="./doctor_mySessions.php" class="menu-item">
           <img src="../../assets/icons/patientsDashboard/myConsultation.svg" alt="sessions icon">
           My Sessions
         </a>
-        <a href="./doctor_bookingHistory.html" class="menu-item active">
+        <a href="./doctor_bookingHistory.php" class="menu-item active">
           <img src="../../assets/icons/patientsDashboard/bookingHistory.svg" alt="history icon">
           Booking History
         </a>
-        <a href="./doctors_settings.html" class="menu-item">
+        <a href="./doctors_settings.php" class="menu-item">
           <img src="../../assets/icons/patientsDashboard/setting.svg" alt="settings icon">
           Account Settings
         </a>
