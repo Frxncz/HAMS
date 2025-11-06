@@ -37,9 +37,11 @@ if ($doctor_result->num_rows > 0) {
     $doctor_data = $doctor_result->fetch_assoc();
 
     if ($doctor_data['password'] === $password) {
-        $_SESSION['user_id'] = $doctor_data['id'];
+        // doctor primary key is `docid` in the schema
+        $_SESSION['user_id'] = $doctor_data['docid'];
         $_SESSION['user_type'] = 'doctor';
         $_SESSION['name'] = $doctor_data['name'];
+        $_SESSION['email'] = $doctor_data['email'] ?? '';
         header("Location: ../pages/doctorDashboard/doctor_dashboard.php");
         exit();
     }

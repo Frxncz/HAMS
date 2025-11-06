@@ -9,6 +9,28 @@ if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'doctor') {
 
 $doctor_name = $_SESSION['name'] ?? 'Doctor Name';
 $avatar = strtoupper(substr($doctor_name, 0, 2));
+// DB connection and fetch upcoming appointments for this doctor
+include_once __DIR__ . '/../../backend/db_connect.php';
+$doctor_id = $_SESSION['user_id'] ?? $_SESSION['doctor_id'] ?? $_SESSION['docid'] ?? null;
+$appointments = [];
+if ($doctor_id) {
+  $stmt = $conn->prepare(
+    "SELECT a.appt_date, a.appt_time, a.purpose, a.status, p.first_name, p.last_name
+     FROM appointments a
+     JOIN patient p ON a.patient_id = p.pid
+     WHERE a.doctor_id = ? AND a.appt_date >= CURDATE()
+     ORDER BY a.appt_date ASC, a.appt_time ASC"
+  );
+  if ($stmt) {
+    $stmt->bind_param('i', $doctor_id);
+    $stmt->execute();
+    $res = $stmt->get_result();
+    while ($r = $res->fetch_assoc()) {
+      $appointments[] = $r;
+    }
+    $stmt->close();
+  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -82,12 +104,20 @@ $avatar = strtoupper(substr($doctor_name, 0, 2));
             </tr>
           </thead>
           <tbody>
+          <?php if (!empty($appointments)): ?>
+            <?php foreach ($appointments as $appt): ?>
+              <tr>
+                <td><?php echo htmlspecialchars($appt['first_name'] . ' ' . $appt['last_name']); ?></td>
+                <td><?php echo htmlspecialchars($appt['appt_date']); ?></td>
+                <td><?php echo htmlspecialchars(substr($appt['appt_time'], 0, 5)); ?></td>
+                <td><?php echo htmlspecialchars(ucwords(str_replace('_', ' ', $appt['purpose']))); ?></td>
+              </tr>
+            <?php endforeach; ?>
+          <?php else: ?>
             <tr>
-              <td>John Smith</td>
-              <td>2025-10-22</td>
-              <td>09:00</td>
-              <td>Regular Check-up</td>
+              <td colspan="4">No upcoming appointments.</td>
             </tr>
+          <?php endif; ?>
           </tbody>
         </table>
       </section>
