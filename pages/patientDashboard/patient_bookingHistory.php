@@ -1,13 +1,40 @@
 <?php
-  session_start();
+session_start();
 
-  // Redirect to login if not logged in
-  if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'patient') {
-    header("Location: ../../login.html");
-    exit();
-  }
+// Redirect to login if not logged in
+if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'patient') {
+  header("Location: ../../login.html");
+  exit();
+}
 
-  $patient_name = $_SESSION['name'];
+$patient_name = $_SESSION['name'];
+$patient_id = $_SESSION['user_id'];
+
+include('../../backend/db_connect.php'); // connect to DB
+
+// Fetch all appointments for this patient
+$stmt = $conn->prepare("
+  SELECT 
+    a.id, 
+    d.name AS doctor_name, 
+    IFNULL(d.specialty, 'General') AS specialty,
+    a.appt_date, 
+    a.appt_time, 
+    a.status
+  FROM appointments a
+  JOIN doctor d ON a.doctor_id = d.docid
+  WHERE a.patient_id = ?
+  ORDER BY a.appt_date DESC, a.appt_time DESC
+");
+$stmt->bind_param("i", $patient_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+$appointments = [];
+while ($row = $result->fetch_assoc()) {
+  $appointments[] = $row;
+}
+$stmt->close();
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +52,6 @@
 
     <!-- Sidebar -->
     <aside class="sidebar">
-
       <div class="profile">
         <div class="avatar"><?php echo strtoupper(substr($patient_name, 0, 2)); ?></div>
         <h2><?php echo htmlspecialchars($patient_name); ?></h2>
@@ -73,35 +99,27 @@
               <th>Specialty</th>
               <th>Date</th>
               <th>Time</th>
-              <th>Status</th>
-              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>APT-000</td>
-              <td>Doctor Name 1</td>
-              <td>Specialty</td>
-              <td>2024-12-15</td>
-              <td>14:00</td>
-              <td><span class="status completed">completed</span></td>
-              <td><button class="action-btn">Book Again</button></td>
-            </tr>
-            <tr>
-              <td>APT-000</td>
-              <td>Doctor Name 2</td>
-              <td>Specialty</td>
-              <td>2024-10-10</td>
-              <td>16:00</td>
-              <td><span class="status cancelled">cancelled</span></td>
-              <td><button class="action-btn">Book Again</button></td>
-            </tr>
+            <?php if (count($appointments) === 0): ?>
+              <tr><td colspan="6">No booking history yet.</td></tr>
+            <?php else: ?>
+              <?php foreach ($appointments as $a): ?>
+                <tr>
+                  <td>APT-<?php echo str_pad($a['id'], 3, '0', STR_PAD_LEFT); ?></td>
+                  <td><?php echo htmlspecialchars($a['doctor_name']); ?></td>
+                  <td><?php echo htmlspecialchars($a['specialty']); ?></td>
+                  <td><?php echo htmlspecialchars($a['appt_date']); ?></td>
+                  <td><?php echo htmlspecialchars(substr($a['appt_time'], 0, 5)); ?></td>
+                </tr>
+              <?php endforeach; ?>
+            <?php endif; ?>
           </tbody>
         </table>
       </div>
     </div>
 
- 
   </div>
 </body>
 </html>

@@ -65,15 +65,3 @@ tbody tr:last-child td {
   background-color: #f8d7da;
   color: #c62828;
 }
-
-/* Action Button */
-.action-btn {
-  background-color: #3a6b97;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s ease;
-}
