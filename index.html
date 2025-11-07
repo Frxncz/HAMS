@@ -1,193 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>HAMS</title>
-		<link rel="stylesheet" href="./css/landing-page.css" />
-		<link rel="stylesheet" href="./css/global.css" />
-	</head>
-	<body>
-		<!-- Navigation Bar -->
-		<header id="navbar">
-			<div class="logo">
-				<img
-					src="./assets/images/landing-page_assests/Logo-removebg-preview.png"
-					alt="HealthCare Logo"
-				/>
-				<span>HealthCare</span>
-			</div>
-			<nav>
-				<ul>
-					<li><a href="#hero">Home</a></li>
-					<li><a href="#aboutUs">About</a></li>
-					<li><a href="#services">Services</a></li>
-					<li><a href="#contacts">Contact</a></li>
-				</ul>
-			</nav>
-			<div class="auth-buttons">
-				<button class="login">
-					<a href="login.html">Log in</a>
-				</button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HAMS | Healthcare Appointment Management System</title>
+<link rel="stylesheet" href="/HAMS/css/landing-page.css" />
+<link rel="stylesheet" href="./css/global.css" />
 
-				<button class="signup">
-					<a href="signup.html">Sign up</a>
-				</button>
-			</div>
-		</header>
+</head>
+<body>
+  <!-- Navbar -->
+  <header id="navbar">
+    <div class="logo">
+      <img src="assets/images/landing-page_assests/Logo-removebg-preview.png" alt="HAMS Logo" />
+      <span>HAMS</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#aboutUs">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contacts">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="auth-buttons">
+      <a class="login" href="login.html">Login</a>
+      <a class="signup" href="signup.html">Sign Up</a>
+    </div>
+  </header>
 
-		<!-- Hero Section -->
-		<section id="hero">
-			<div class="hero-text">
-				<span class="tag">✨ Your Health Partner</span>
-				<h1 class="title1" style="color: #2c3e50">Your Health,</h1>
-				<h1 class="title2" style="color: #4a7ba7">Our Priority</h1>
-				<p style="color: #4a7ba7">
-					Book appointments with top doctors, manage your medical records, and
-					get personalized healthcare all in one place.
-				</p>
-				<div class="hero-buttons">
-					<button class="primary">Get Started</button>
-					<button class="secondary">Learn More</button>
-				</div>
-			</div>
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="hero-text">
+      <h1>Your Health, <span>Our Priority</span></h1>
+      <p>Book appointments easily, access your doctors anytime, and manage your healthcare all in one place.</p>
+      <div class="hero-buttons">
+        <a href="signup.html" class="btn primary">Get Started</a>
+        <a href="#services" class="btn secondary">Learn More</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="./assets/images/landing-page_assests/doctor-illustration.jpg" alt="Doctor illustration" />
+    </div>
+  </section>
 
-			<div class="hero-image">
-				<img
-					src="./assets/images/landing-page_assests/doctor-illustration.jpg"
-				/>
-			</div>
-		</section>
-		<section id="aboutUs">
-			<h1 class="title">About Us</h1>
-			<p style="width: 35%; color: #4a7ba7">
-				We are dedicated team of students passionate about revolutionizing
-				healthcare accessibility through technology. Our platform connects
-				patients with quality healthcare providers, making medical care more
-				efficient.
-			</p>
-			<div class="members">
-				<h1>Meet Our Team</h1>
-				<div class="member-list">
-					<div>
-						<img
-							src="./assets/icons/patientsDashboard/person.svg"
-							alt="person"
-						/>
-						<h3>Team Member 1</h3>
-						<p>Role/Position</p>
-						<p>
-							Brief description of responsibilities or contribution to the
-							project.
-						</p>
-					</div>
-					<div>
-						<img
-							src="./assets/icons/patientsDashboard/person.svg"
-							alt="person"
-						/>
-						<h3>Team Member 2</h3>
-						<p>Role/Position</p>
-						<p>
-							Brief description of responsibilities or contribution to the
-							project.
-						</p>
-					</div>
-					<div>
-						<img
-							src="./assets/icons/patientsDashboard/person.svg"
-							alt="person"
-						/>
-						<h3>Team Member 3</h3>
-						<p>Role/Position</p>
-						<p>
-							Brief description of responsibilities or contribution to the
-							project.
-						</p>
-					</div>
-					<div>
-						<img
-							src="./assets/icons/patientsDashboard/person.svg"
-							alt="person"
-						/>
-						<h3>Team Member 4</h3>
-						<p>Role/Position</p>
-						<p>
-							Brief description of responsibilities or contribution to the
-							project.
-						</p>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section id="services">
-			<h1 class="title">Our Services</h1>
-			<p>
-				Experience healthcare that puts you first with our comprehensive
-				platform
-			</p>
-			<div class="service-list">
-				<div>
-					<img src="./assets/icons/patientsDashboard/myConsultation.svg" />
-					<h3>Easy Booking</h3>
-					<p>Schedule appointment with just a few clicks</p>
-				</div>
-				<div>
-					<img src="./assets/icons/patientsDashboard/group.svg" />
-					<h3>Top Doctors</h3>
-					<p>access to qualified healthcare professionals</p>
-				</div>
-				<div>
-					<img src="./assets/icons/patientsDashboard/nest_clock.svg" />
-					<h3>24/7 Support</h3>
-					<p>We're here whenever you need us</p>
-				</div>
-				<div>
-					<img src="./assets/icons/patientsDashboard/shield.svg" />
-					<h3>Secure and Private</h3>
-					<p>Your data is protected and confidential</p>
-				</div>
-			</div>
-		</section>
-		<section id="contacts">
-			<h1 class="title">Contact Us</h1>
-			<p>
-				Have questions? We'd love to hear from you. Send us a message and we'll
-				respond as soon as possible.
-			</p>
-			<div class="contact-list">
-				<div>
-					<img src="./assets/icons/patientsDashboard/mail.svg" />
-					<div class="details">
-						<h3>Email</h3>
-						<p>contact@healthcare.com</p>
-					</div>
-				</div>
-				<div>
-					<img src="./assets/icons/patientsDashboard/call.svg" />
-					<div class="details">
-						<h3>Phone</h3>
-						<p>+1 (555) 123-4567</p>
-					</div>
-				</div>
-				<div>
-					<img src="./assets/icons/patientsDashboard/location.svg" />
-					<div class="details">
-						<h3>Address</h3>
-						<p>123 Healthcare Avenue Medical District, City 12345</p>
-					</div>
-				</div>
-			</div>
-		</section>
-		<footer>
-			<div class="logo">
-				<img
-					src="./assets/images/landing-page_assests/Logo-removebg-preview.png"
-					alt="HealthCare Logo"
-				/>
-				<span>HealthCare</span>
-			</div>
-			<p>&#169; 2025 Your Company Name. All rights reserved.</p>
-		</footer>
-	</body>
+  <!-- About Section -->
+  <section id="aboutUs">
+    <h2>About Us</h2>
+    <p class="about-desc">We’re a team of passionate students building a simple, accessible healthcare platform that connects patients and doctors — making appointments faster and more efficient.</p>
+
+    <div class="member-list">
+      <div class="member-card">
+        <img src="./assets/icons/patientsDashboard/person.svg" alt="person" />
+        <h3>Team Member 1</h3>
+        <p class="role">Developer</p>
+      </div>
+      <div class="member-card">
+        <img src="./assets/icons/patientsDashboard/person.svg" alt="person" />
+        <h3>Team Member 2</h3>
+        <p class="role">Designer</p>
+      </div>
+      <div class="member-card">
+        <img src="./assets/icons/patientsDashboard/person.svg" alt="person" />
+        <h3>Team Member 3</h3>
+        <p class="role">Backend Developer</p>
+      </div>
+      <div class="member-card">
+        <img src="./assets/icons/patientsDashboard/person.svg" alt="person" />
+        <h3>Team Member 4</h3>
+        <p class="role">Frontend Developer</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <p class="service-intro">Healthcare made simple — efficient, accessible, and secure.</p>
+    <div class="service-list">
+      <div class="service-card">
+        <img src="./assets/icons/patientsDashboard/myConsultation.svg" alt="Booking icon" />
+        <h3>Easy Booking</h3>
+        <p>Schedule appointments in just a few clicks.</p>
+      </div>
+      <div class="service-card">
+        <img src="./assets/icons/patientsDashboard/group.svg" alt="Doctor icon" />
+        <h3>Top Doctors</h3>
+        <p>Access trusted healthcare professionals.</p>
+      </div>
+      <div class="service-card">
+        <img src="./assets/icons/patientsDashboard/nest_clock.svg" alt="24/7 icon" />
+        <h3>24/7 Support</h3>
+        <p>We’re always here to assist you.</p>
+      </div>
+      <div class="service-card">
+        <img src="./assets/icons/patientsDashboard/shield.svg" alt="Security icon" />
+        <h3>Secure & Private</h3>
+        <p>Your information stays safe with us.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contacts">
+    <h2>Contact Us</h2>
+    <p>Have questions? Reach out to us anytime — we’re here to help.</p>
+    <div class="contact-list">
+      <div class="contact-card">
+        <img src="./assets/icons/patientsDashboard/mail.svg" alt="mail" />
+        <h4>Email</h4>
+        <p>contact@healthcare.com</p>
+      </div>
+      <div class="contact-card">
+        <img src="./assets/icons/patientsDashboard/call.svg" alt="phone" />
+        <h4>Phone</h4>
+        <p>+1 (555) 123-4567</p>
+      </div>
+      <div class="contact-card">
+        <img src="./assets/icons/patientsDashboard/location.svg" alt="location" />
+        <h4>Address</h4>
+        <p>123 Healthcare Avenue, Medical City</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    </div>
+    <p>© 2025 HAMS. All rights reserved.</p>
+  </footer>
+</body>
 </html>
