@@ -127,3 +127,65 @@
 .card-actions button:hover {
   opacity: 0.85;
 }
+
+/* Modal / action button styling: revert to simple card styles for modal buttons */
+.modal .modal-box .accept-btn {
+  background-color: #e8f9ee; /* light green background */
+  color: #27ae60; /* darker green text */
+  border: 1px solid #27ae60;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+.modal .modal-box .accept-btn:hover {
+  opacity: 0.9;
+}
+
+.modal .modal-box .decline-btn {
+  background-color: #fdecea; /* light red background */
+  color: #e74c3c; /* darker red text */
+  border: 1px solid #e74c3c;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+.modal .modal-box .decline-btn:hover {
+  opacity: 0.9;
+}
+
+/* Secondary / Close button in modal */
+.modal .modal-box .secondary {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+  padding: 9px 14px;
+  border-radius: 8px;
+}
+.modal .modal-box .secondary:hover {
+  background: #eef2f7;
+}
+
+/* modal close (X) */
+.modal .modal-box .modal-close {
+  font-size: 20px;
+  color: #6b7280;
+  background: transparent;
+  border: none;
+  line-height: 1;
+  padding: 6px;
+}
+.modal .modal-box .modal-close:hover { color: #111827; }
+
+/* ensure buttons in modal are grouped nicely */
+.modal .modal-box form,
+.modal .modal-box button.secondary { margin-right: 8px; }
+
+/* Icon button layout */
+.btn-icon { display: inline-flex; align-items: center; gap: 8px; }
+.btn-icon svg { width: 16px; height: 16px; display: inline-block; }
+
+/* Focus styles */
+.accept-btn:focus, .decline-btn:focus, .secondary:focus, .view-btn:focus, .modal .modal-box .modal-close:focus {
+  outline: 3px solid rgba(59,130,246,0.25);
+  outline-offset: 2px;
+}
