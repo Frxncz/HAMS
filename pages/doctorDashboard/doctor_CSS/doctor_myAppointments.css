@@ -128,6 +128,15 @@
   opacity: 0.85;
 }
 
+/* Disabled button appearance */
+.card-actions button[disabled],
+.modal .modal-box button[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
 /* Modal / action button styling: revert to simple card styles for modal buttons */
 .modal .modal-box .accept-btn {
   background-color: #e8f9ee; /* light green background */
@@ -189,3 +198,6 @@
   outline: 3px solid rgba(59,130,246,0.25);
   outline-offset: 2px;
 }
+
+/* Utility class to hide inline buttons while modal is open */
+.hidden-during-modal { display: none !important; }

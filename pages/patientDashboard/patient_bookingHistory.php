@@ -23,7 +23,7 @@ $stmt = $conn->prepare("
     a.status
   FROM appointments a
   JOIN doctor d ON a.doctor_id = d.docid
-  WHERE a.patient_id = ?
+  WHERE a.patient_id = ? AND a.status <> 'declined'
   ORDER BY a.appt_date DESC, a.appt_time DESC
 ");
 $stmt->bind_param("i", $patient_id);

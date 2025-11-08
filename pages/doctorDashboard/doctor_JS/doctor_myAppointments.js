@@ -31,6 +31,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const d = document.getElementById('modal_app_id_decline');
     if (a) a.value = id;
     if (d) d.value = id;
+
+    // hide the inline accept/decline buttons for this card while modal is open to avoid visual duplication
+    // store reference on modal so we can restore later
+    const card = btn.closest('.appointment-card');
+    if (card) {
+      const inlineBtns = card.querySelectorAll('.accept-btn, .decline-btn');
+      // save for restore
+      modal._hiddenInline = inlineBtns;
+      inlineBtns.forEach(b => b.classList.add('hidden-during-modal'));
+    }
   }
 
   // attach to all view buttons
@@ -54,4 +64,14 @@ document.addEventListener('DOMContentLoaded', function () {
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
   });
+  
+  // restore inline buttons when modal closes
+  // observe modal class changes via mutation observer to detect close and restore
+  const mo = new MutationObserver(function () {
+    if (!modal.classList.contains('open') && modal._hiddenInline) {
+      modal._hiddenInline.forEach(b => b.classList.remove('hidden-during-modal'));
+      modal._hiddenInline = null;
+    }
+  });
+  mo.observe(modal, { attributes: true, attributeFilter: ['class'] });
 });

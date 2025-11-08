@@ -18,7 +18,8 @@ if ($doctor_id) {
     "SELECT a.appt_date, a.appt_time, a.purpose, a.status, p.first_name, p.last_name
      FROM appointments a
      JOIN patient p ON a.patient_id = p.pid
-     WHERE a.doctor_id = ? AND a.appt_date >= CURDATE()
+    -- exclude declined appointments so they don't appear in upcoming list
+    WHERE a.doctor_id = ? AND a.status <> 'declined' AND a.appt_date >= CURDATE()
      ORDER BY a.appt_date ASC, a.appt_time ASC"
   );
   if ($stmt) {

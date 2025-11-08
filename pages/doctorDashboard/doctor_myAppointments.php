@@ -12,7 +12,8 @@ require_once __DIR__ . '/../../backend/db_connect.php';
 // fetch appointments for logged-in doctor
 $doctor_id = intval($_SESSION['user_id']);
 $appointments = [];
-if ($stmt = $conn->prepare("SELECT a.id, a.appt_date, a.appt_time, a.purpose, a.status, p.pid AS patient_id, p.first_name, p.last_name, p.email FROM appointments a JOIN patient p ON a.patient_id = p.pid WHERE a.doctor_id = ? ORDER BY a.appt_date ASC, a.appt_time ASC")) {
+// exclude appointments that have been declined so they don't show in the doctor's list
+if ($stmt = $conn->prepare("SELECT a.id, a.appt_date, a.appt_time, a.purpose, a.status, p.pid AS patient_id, p.first_name, p.last_name, p.email FROM appointments a JOIN patient p ON a.patient_id = p.pid WHERE a.doctor_id = ? AND a.status <> 'declined' ORDER BY a.appt_date ASC, a.appt_time ASC")) {
   $stmt->bind_param('i', $doctor_id);
   $stmt->execute();
   $result = $stmt->get_result();
@@ -170,18 +171,21 @@ if ($stmt = $conn->prepare("SELECT a.id, a.appt_date, a.appt_time, a.purpose, a.
       data-status="<?php echo htmlspecialchars($a['status']); ?>"
       data-patient-id="<?php echo htmlspecialchars($a['patient_id']); ?>"
     >View Details</button>
-                <?php if ($a['status'] === 'pending'): ?>
-                  <form method="post" action="../../backend/doctor_backend/update_appointment_status.php" style="display:inline">
-                    <input type="hidden" name="appointment_id" value="<?php echo htmlspecialchars($a['id']); ?>">
-                    <input type="hidden" name="action" value="accept">
-                    <button type="submit" class="accept-btn">Accept</button>
-                  </form>
-                  <form method="post" action="../../backend/doctor_backend/update_appointment_status.php" style="display:inline">
-                    <input type="hidden" name="appointment_id" value="<?php echo htmlspecialchars($a['id']); ?>">
-                    <input type="hidden" name="action" value="decline">
-                    <button type="submit" class="decline-btn">Decline</button>
-                  </form>
-                <?php endif; ?>
+    
+                <?php
+                  // Show inline accept/decline buttons beside View Details so doctor can act quickly.
+                  $is_pending = ($a['status'] === 'pending');
+                ?>
+                <form method="post" action="../../backend/doctor_backend/update_appointment_status.php" style="display:inline">
+                  <input type="hidden" name="appointment_id" value="<?php echo htmlspecialchars($a['id']); ?>">
+                  <input type="hidden" name="action" value="accept">
+                  <button type="submit" class="accept-btn" <?php echo $is_pending ? '' : 'disabled title="Only available for pending appointments"'; ?>>Accept</button>
+                </form>
+                <form method="post" action="../../backend/doctor_backend/update_appointment_status.php" style="display:inline">
+                  <input type="hidden" name="appointment_id" value="<?php echo htmlspecialchars($a['id']); ?>">
+                  <input type="hidden" name="action" value="decline">
+                  <button type="submit" class="decline-btn" <?php echo $is_pending ? '' : 'disabled title="Only available for pending appointments"'; ?>>Decline</button>
+                </form>
               </div>
             </div>
           <?php endforeach; ?>
