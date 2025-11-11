@@ -58,89 +58,80 @@ $avatar = strtoupper(substr($doctor_name, 0, 2));
     <!-- Main Content-->
     <main class="main-content">
       <h1>Account Settings</h1>
+      <?php if (isset($_SESSION['msg_success'])): ?>
+        <div class="message success"><?php echo htmlspecialchars($_SESSION['msg_success']); unset($_SESSION['msg_success']); ?></div>
+      <?php endif; ?>
+      <?php if (isset($_SESSION['msg_error'])): ?>
+        <div class="message error"><?php echo htmlspecialchars($_SESSION['msg_error']); unset($_SESSION['msg_error']); ?></div>
+      <?php endif; ?>
+      <?php
+      // load current doctor info to prefill the form
+      require_once __DIR__ . '/../../backend/db_connect.php';
+      $docid = intval($_SESSION['user_id']);
+      $doc = [ 'name' => $doctor_name, 'email' => '', 'specialty' => '' ];
+      if ($stmt = $conn->prepare('SELECT name, email, specialty FROM doctor WHERE docid = ? LIMIT 1')) {
+        $stmt->bind_param('i', $docid);
+        $stmt->execute();
+        $res = $stmt->get_result();
+        if ($res && $row = $res->fetch_assoc()) {
+          $doc = array_merge($doc, $row);
+        }
+        $stmt->close();
+      }
+      // split name to first/last for fields
+    $parts = explode(' ', $doc['name'], 2);
+      $first = $parts[0] ?? '';
+      $last = $parts[1] ?? '';
+      ?>
 
       <!-- Personal Information -->
       <section class="settings-section">
         <h2>Personal Information</h2>
         <p class="section-subtitle">Update your personal details</p>
-        <form>
+        <form method="post" action="../../backend/doctor_backend/update_doctor_profile.php">
+          <input type="hidden" name="action" value="info">
           <div class="form-row">
             <div class="form-group">
               <label for="first-name">First Name</label>
-              <input type="text" id="first-name" placeholder="Patient">
+              <input type="text" id="first-name" name="first_name" value="<?php echo htmlspecialchars($first); ?>">
             </div>
             <div class="form-group">
               <label for="last-name">Last Name</label>
-              <input type="text" id="last-name" placeholder="Name">
+              <input type="text" id="last-name" name="last_name" value="<?php echo htmlspecialchars($last); ?>">
             </div>
           </div>
 
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" placeholder="patient@example.com">
+            <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($doc['email']); ?>">
           </div>
 
           <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" placeholder="+1 (555) 123-4567">
-          </div>
-
-          <div class="form-group">
-            <label for="dob">Date of Birth</label>
-            <input type="date" id="dob">
+            <label for="specialty">Specialty</label>
+            <input type="text" id="specialty" name="specialty" value="<?php echo htmlspecialchars($doc['specialty']); ?>">
           </div>
 
           <button type="submit" class="save-btn">Save Changes</button>
         </form>
       </section>
-
-      <!-- Address -->
-      <section class="settings-section">
-        <h2>Address</h2>
-        <p class="section-subtitle">Your current address</p>
-        <form>
-          <div class="form-group">
-            <label for="street">Street Address</label>
-            <input type="text" id="street" placeholder="123 Main Street">
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="city">City</label>
-              <input type="text" id="city" placeholder="New York">
-            </div>
-            <div class="form-group">
-              <label for="state">State</label>
-              <input type="text" id="state" placeholder="NY">
-            </div>
-            <div class="form-group">
-              <label for="zip">ZIP Code</label>
-              <input type="text" id="zip" placeholder="10001">
-            </div>
-          </div>
-
-          <button type="submit" class="save-btn">Save Address</button>
-        </form>
-      </section>
-
-      <!-- Security -->
       <section class="settings-section">
         <h2>Security</h2>
         <p class="section-subtitle">Update your password</p>
-        <form>
+        <form method="post" action="../../backend/doctor_backend/update_doctor_profile.php">
+          <input type="hidden" name="action" value="password">
           <div class="form-group">
             <label for="current-password">Current Password</label>
-            <input type="password" id="current-password">
+            <input type="password" id="current-password" name="current_password" required>
           </div>
 
           <div class="form-group">
             <label for="new-password">New Password</label>
-            <input type="password" id="new-password">
+            <input type="password" id="new-password" name="new_password" required>
           </div>
 
           <div class="form-group">
             <label for="confirm-password">Confirm New Password</label>
-            <input type="password" id="confirm-password">
+            <input type="password" id="confirm-password" name="confirm_password" required>
           </div>
 
           <button type="submit" class="save-btn">Update Password</button>
