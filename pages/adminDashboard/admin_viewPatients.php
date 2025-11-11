@@ -17,29 +17,30 @@
         <div class="avatar">A</div>
         <h2>Administrator</h2>
       </div>
-      <button class="logout-btn">
+
+      <button class="logout-btn" onclick="window.location.href='../../backend/logout.php'">
         <img src="../../assets/icons/patientsDashboard/logout.svg" alt="logout icon">
         Log out
       </button>
 
       <nav class="menu">
-        <a href="./admin_dashboard.html" class="menu-item">
+        <a href="./admin_dashboard.php" class="menu-item">
           <img src="../../assets/icons/adminDashboard/adminDashboard.svg" alt="home icon">
           Dashboard
         </a>
-        <a href="./admin_viewDoctors.html" class="menu-item">
+        <a href="./admin_viewDoctors.php" class="menu-item">
           <img src="../../assets/icons/adminDashboard/viewDoctors.svg" alt="doctor icon">
           View Doctors
         </a>
-        <a href="./admin_viewPatients.html" class="menu-item active">
+        <a href="./admin_viewPatients.php" class="menu-item active">
           <img src="../../assets/icons/adminDashboard/viewPatients.svg" alt="consultations icon">
           View Patients
         </a>
-        <a href="./admin_appointments.html" class="menu-item">
+        <a href="./admin_appointments.php" class="menu-item">
           <img src="../../assets/icons/adminDashboard/appointments.svg" alt="history icon">
           Appointments
         </a>
-        <a href="./admin_settings.html" class="menu-item">
+        <a href="./admin_settings.php" class="menu-item">
           <img src="../../assets/icons/adminDashboard/settings.svg" alt="settings icon">
           Account Settings
         </a>

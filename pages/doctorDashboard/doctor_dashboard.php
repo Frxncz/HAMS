@@ -31,6 +31,17 @@ if ($doctor_id) {
     }
     $stmt->close();
   }
+
+  // Total appointments for this doctor counted as one per patient (distinct patient_id)
+  $totalAppointmentsDistinct = 0;
+  if ($stmt2 = $conn->prepare("SELECT COUNT(DISTINCT patient_id) AS cnt FROM appointments WHERE doctor_id = ? AND status <> 'declined'")) {
+    $stmt2->bind_param('i', $doctor_id);
+    $stmt2->execute();
+    $res2 = $stmt2->get_result();
+    $r2 = $res2->fetch_assoc();
+    $totalAppointmentsDistinct = intval($r2['cnt'] ?? 0);
+    $stmt2->close();
+  }
 }
 ?>
 <!DOCTYPE html>
@@ -91,6 +102,23 @@ if ($doctor_id) {
           Stay organized and keep track of your schedule.
         </p>
         <button class="appointments-btn">View My Appointments</button>
+      </section>
+
+      <!-- Quick Stats -->
+      <section class="stats">
+        <div class="stats-grid" style="display:flex; gap:16px; margin:18px 0;">
+          <div class="stat-card" style="padding:12px; border-radius:8px; background:#fff; box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div style="width:44px; height:44px; border-radius:50%; background:#f0f4ff; display:flex; align-items:center; justify-content:center;">
+                <img src="../../assets/icons/patientsDashboard/findDoctor.svg" alt="appointments icon" style="width:22px; height:22px;">
+              </div>
+              <div>
+                <div style="font-size:12px; color:#666;">Total Appointments</div>
+                <div style="font-size:20px; font-weight:600;"><?php echo htmlspecialchars($totalAppointmentsDistinct); ?></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section class="appointments">

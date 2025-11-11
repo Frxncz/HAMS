@@ -22,7 +22,7 @@ if ($admin_result->num_rows > 0) {
         $_SESSION['user_id'] = $admin_data['id'];
         $_SESSION['user_type'] = 'admin';
         $_SESSION['name'] = $admin_data['name'];
-        header("Location: ../pages/adminDashboard/admin_dashboard.html");
+        header("Location: ../pages/adminDashboard/admin_dashboard.php");
         exit();
     }
 }
