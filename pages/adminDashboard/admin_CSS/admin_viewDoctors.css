@@ -180,3 +180,102 @@
     .btn.primary:hover {
     background-color: #2d5577;
     }
+
+    /* Modal styles */
+    .modal {
+      display: none; /* shown via inline style 'flex' in JS */
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      align-items: center;
+      justify-content: center;
+      z-index: 1200;
+      padding: 20px;
+    }
+
+    .modal-box {
+      background: #ffffff;
+      border-radius: 10px;
+      max-width: 700px;
+      width: 100%;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+      padding: 20px 22px;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .modal-box h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
+
+    .modal-box button[ id$="Close" ] {
+      position: absolute;
+      right: 12px;
+      top: 8px;
+      background: transparent;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: #666;
+    }
+
+    /* Modal form inputs */
+    .modal-box label {
+      display: block;
+      margin-top: 10px;
+      font-size: 13px;
+      color: #333;
+    }
+
+    .modal-box input[type="text"],
+    .modal-box input[type="email"],
+    .modal-box input[type="password"] {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #e3eaf2;
+      border-radius: 8px;
+      margin-top: 6px;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+
+    .modal-box .btn {
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .modal-box .btn.primary {
+      background-color: #3a6b97;
+      color: #fff;
+      border: 1px solid #3a6b97;
+    }
+
+    /* Action buttons unified size */
+    .actions .btn {
+      padding: 8px 10px;
+      min-width: 44px;
+      border-radius: 8px;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn.view { background: #3a6b97; border-color: #3a6b97; color:#fff }
+    .btn.view:hover { background:#3a6b97 }
+    .btn.edit { background: #3a6b97; border-color:#3a6b97; color:#fff }
+    .btn.edit:hover { background:#3a6b97 }
+    .btn.deactivate { background:#fff5f5; color:#c0392b; border-color:#c0392b }
+    .btn.deactivate:hover { background:#fdecea }
+    .btn.activate { background:#e9f7ef; color:#1e7d3b; border-color:#1e7d3b}
+    .btn.activate:hover { background:#dff2df }
+
+    /* Responsive tweaks */
+    @media (max-width: 800px) {
+      .top-bar { flex-direction: column; align-items: stretch; }
+      .top-bar .btn.primary { width: 100%; }
+      .actions { flex-wrap: wrap; }
+    }

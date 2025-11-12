@@ -13,6 +13,21 @@ $avatar = strtoupper(substr($doctor_name, 0, 2));
 include_once __DIR__ . '/../../backend/db_connect.php';
 $doctor_id = $_SESSION['user_id'] ?? $_SESSION['doctor_id'] ?? $_SESSION['docid'] ?? null;
 $appointments = [];
+// Fetch fresh doctor profile so admin edits reflect immediately
+if ($doctor_id) {
+  if ($pstmt = $conn->prepare("SELECT name, email, specialty, COALESCE(status,'active') AS status FROM doctor WHERE docid = ?")) {
+    $pstmt->bind_param('i', $doctor_id);
+    $pstmt->execute();
+    $pres = $pstmt->get_result();
+    if ($prow = $pres->fetch_assoc()) {
+      $doctor_name = $prow['name'] ?: $doctor_name;
+      $avatar = strtoupper(substr($doctor_name, 0, 2));
+      $_SESSION['name'] = $doctor_name;
+      $_SESSION['email'] = $prow['email'] ?? $_SESSION['email'] ?? '';
+    }
+    $pstmt->close();
+  }
+}
 if ($doctor_id) {
   $stmt = $conn->prepare(
     "SELECT a.appt_date, a.appt_time, a.purpose, a.status, p.first_name, p.last_name
