@@ -93,7 +93,6 @@ $res = $conn->query($sql);
               <th>Name</th>
               <th>Email</th>
               <th>Phone</th>
-              <th>Age</th>
               <th>Total Visits</th>
               <th>Status</th>
               <th>Actions</th>
@@ -107,16 +106,14 @@ $res = $conn->query($sql);
                     $last = htmlspecialchars($row['last_name']);
                     $email = htmlspecialchars($row['email']);
                     $phone = htmlspecialchars($row['phone']);
-                    $age = htmlspecialchars($row['age']);
                     $status = htmlspecialchars($row['status']);
                     $visits = (int)$row['total_visits'];
                     $fullName = trim($first . ' ' . $last);
             ?>
-            <tr id="patient-row-<?php echo $pid; ?>" data-pid="<?php echo $pid; ?>" data-first="<?php echo $first; ?>" data-last="<?php echo $last; ?>" data-email="<?php echo $email; ?>" data-phone="<?php echo $phone; ?>" data-age="<?php echo $age; ?>" data-status="<?php echo $status; ?>" data-visits="<?php echo $visits; ?>">
+            <tr id="patient-row-<?php echo $pid; ?>" data-pid="<?php echo $pid; ?>" data-first="<?php echo $first; ?>" data-last="<?php echo $last; ?>" data-email="<?php echo $email; ?>" data-phone="<?php echo $phone; ?>" data-status="<?php echo $status; ?>" data-visits="<?php echo $visits; ?>">
               <td class="p-name"><?php echo $fullName; ?></td>
               <td class="p-email"><?php echo $email; ?></td>
               <td class="p-phone"><?php echo $phone; ?></td>
-              <td class="p-age"><?php echo $age; ?></td>
               <td class="p-visits"><?php echo $visits; ?></td>
               <td class="p-status"><span class="status <?php echo $status === 'active' ? 'active' : 'inactive'; ?>"><?php echo ucfirst($status); ?></span></td>
               <td>
@@ -197,12 +194,13 @@ $res = $conn->query($sql);
     function openView(pid) {
       const row = document.getElementById('patient-row-' + pid);
       if (!row) return alert('Row not found');
-      document.getElementById('viewName').textContent = row.dataset.first + ' ' + row.dataset.last;
-      document.getElementById('viewEmail').textContent = row.dataset.email;
-      document.getElementById('viewPhone').textContent = row.dataset.phone;
-      document.getElementById('viewAge').textContent = row.dataset.age;
-      document.getElementById('viewVisits').textContent = row.dataset.visits;
-      document.getElementById('viewStatus').textContent = row.dataset.status;
+      document.getElementById('viewName').textContent = (row.dataset.first || '') + ' ' + (row.dataset.last || '');
+      document.getElementById('viewEmail').textContent = row.dataset.email || '';
+      document.getElementById('viewPhone').textContent = row.dataset.phone || '';
+      // age field removed from table; show empty if not present
+      document.getElementById('viewAge').textContent = row.dataset.age || '';
+      document.getElementById('viewVisits').textContent = row.dataset.visits || '';
+      document.getElementById('viewStatus').textContent = row.dataset.status || '';
       document.getElementById('patientViewModal').style.display = 'flex';
     }
 
@@ -210,11 +208,11 @@ $res = $conn->query($sql);
       const row = document.getElementById('patient-row-' + pid);
       if (!row) return alert('Row not found');
       document.getElementById('editPid').value = pid;
-      document.getElementById('editFirst').value = row.dataset.first;
-      document.getElementById('editLast').value = row.dataset.last;
-      document.getElementById('editEmail').value = row.dataset.email;
-      document.getElementById('editPhone').value = row.dataset.phone;
-      document.getElementById('editAge').value = row.dataset.age;
+      document.getElementById('editFirst').value = row.dataset.first || '';
+      document.getElementById('editLast').value = row.dataset.last || '';
+      document.getElementById('editEmail').value = row.dataset.email || '';
+      document.getElementById('editPhone').value = row.dataset.phone || '';
+      document.getElementById('editAge').value = row.dataset.age || '';
       document.getElementById('patientEditModal').style.display = 'flex';
     }
 
@@ -302,7 +300,6 @@ $res = $conn->query($sql);
           row.querySelector('.p-name').textContent = row.dataset.first + ' ' + row.dataset.last;
           row.querySelector('.p-email').textContent = row.dataset.email;
           row.querySelector('.p-phone').textContent = row.dataset.phone;
-          row.querySelector('.p-age').textContent = row.dataset.age;
           closeModal('patientEditModal');
           alert('Patient updated');
         } else {
