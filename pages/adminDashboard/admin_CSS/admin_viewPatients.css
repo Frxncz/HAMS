@@ -122,9 +122,9 @@ background-color: #325c84;
   border: 1px solid #cfead3;
 }
 .status.inactive {
-  background-color: #fff5f5;
-  color: #c0392b;
-  border: 1px solid #f1c0c0;
+      background-color: #f4f4f5; /* light gray */
+      color: #6b6b6b; /* muted gray text */
+      border-color: #e6e6e6;
 }
 
 /* Action button variants to indicate the action (activate = green, deactivate = red) */

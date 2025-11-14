@@ -98,7 +98,7 @@ if ($stmt = $conn->prepare($sql)) {
                   <td><?php echo htmlspecialchars($d['specialty']); ?></td>
                   <td>&mdash;</td>
                   <td><?php echo htmlspecialchars($d['patients_count']); ?></td>
-                  <td><span class="status"><?php echo htmlspecialchars($d['status']); ?></span></td>
+                  <td><span class="status <?php echo htmlspecialchars($d['status']) === 'active' ? 'active' : 'inactive'; ?>"><?php echo htmlspecialchars($d['status']); ?></span></td>
                   <td>
                     <button class="btn view view-doctor" data-doc='<?php echo json_encode($d, JSON_HEX_APOS|JSON_HEX_QUOT); ?>'>View</button>
                     <button class="btn edit edit-doctor" data-doc='<?php echo json_encode($d, JSON_HEX_APOS|JSON_HEX_QUOT); ?>'>Edit</button>
