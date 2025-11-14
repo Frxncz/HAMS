@@ -127,3 +127,40 @@
     background-color: #325c84;
     }
 
+    /* Modal overlay and content for appointment details */
+    .modal {
+      display: none; /* shown by inline style when needed */
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      align-items: center;
+      justify-content: center;
+      z-index: 1200;
+      padding: 20px;
+    }
+    .modal[style*="display: flex"] {
+      display: flex; /* ensure inline display:flex also applies flex layout */
+    }
+    .modal-content {
+      background: #ffffff;
+      border-radius: 10px;
+      max-width: 720px;
+      width: 100%;
+      box-shadow: 0 20px 40px rgba(2,6,23,0.12);
+      padding: 20px 24px;
+      box-sizing: border-box;
+      position: relative;
+    }
+    .modal-content .close {
+      position: absolute;
+      right: 12px;
+      top: 8px;
+      background: transparent;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: #666;
+    }
+    .modal-content h2 { margin-top: 0; margin-bottom: 12px; }
+    .modal-content p { margin: 8px 0; }
+
