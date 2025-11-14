@@ -174,7 +174,6 @@ if ($stmt = $conn->prepare("SELECT d.docid, d.name, d.email, d.specialty, COALES
               <th>Name</th>
               <th>Email</th>
               <th>Phone</th>
-              <th>Age</th>
               <th>Total Visits</th>
             </tr>
           </thead>
@@ -185,12 +184,11 @@ if ($stmt = $conn->prepare("SELECT d.docid, d.name, d.email, d.specialty, COALES
                   <td><?php echo htmlspecialchars($p['first_name'] . ' ' . $p['last_name']); ?></td>
                   <td><?php echo htmlspecialchars($p['email']); ?></td>
                   <td>&mdash;</td>
-                  <td>&mdash;</td>
                   <td><?php echo htmlspecialchars($p['visits']); ?></td>
                 </tr>
               <?php endforeach; ?>
             <?php else: ?>
-              <tr><td colspan="5">No patients found.</td></tr>
+              <tr><td colspan="4">No patients found.</td></tr>
             <?php endif; ?>
           </tbody>
         </table>
