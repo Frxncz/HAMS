@@ -106,3 +106,43 @@ background-color: #325c84;
   color: #e74c3c;
   border: 1px solid #f1c0c0;
 }
+
+/* Status button variants */
+.status {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-right: 8px;
+}
+.status.active {
+  background-color: #e6f4ea;
+  color: #1e7d32;
+  border: 1px solid #cfead3;
+}
+.status.inactive {
+  background-color: #fff5f5;
+  color: #c0392b;
+  border: 1px solid #f1c0c0;
+}
+
+/* Action button variants to indicate the action (activate = green, deactivate = red) */
+.btn.toggle-status {
+  min-width: 96px; /* keep button width stable to avoid layout shift */
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+.btn.toggle-status.active {
+  background-color: #fff5f5; /* when active, the action is Deactivate (red) */
+  color: #c0392b;
+  border: 1px solid #c0392b;
+}
+.btn.toggle-status.active:hover { background-color: #fdecea }
+.btn.toggle-status.inactive {
+  background-color: #e9f7ef; /* when inactive, the action is Activate (green) */
+  color: #1e7d32;
+  border: 1px solid #1e7d32;
+}
+.btn.toggle-status.inactive:hover { background-color: #dff2df }
