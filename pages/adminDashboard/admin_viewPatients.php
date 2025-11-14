@@ -77,10 +77,7 @@ $res = $conn->query($sql);
           <img src="../../assets/icons/adminDashboard/appointments.svg" alt="history icon">
           Appointments
         </a>
-        <a href="./admin_settings.php" class="menu-item">
-          <img src="../../assets/icons/adminDashboard/settings.svg" alt="settings icon">
-          Account Settings
-        </a>
+        
       </nav>
     </aside>
 
