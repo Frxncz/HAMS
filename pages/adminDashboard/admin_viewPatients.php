@@ -206,7 +206,7 @@ $res = $conn->query($sql);
       document.getElementById('viewAge').textContent = row.dataset.age;
       document.getElementById('viewVisits').textContent = row.dataset.visits;
       document.getElementById('viewStatus').textContent = row.dataset.status;
-      document.getElementById('patientViewModal').style.display = 'block';
+      document.getElementById('patientViewModal').style.display = 'flex';
     }
 
     function openEdit(pid) {
@@ -218,7 +218,7 @@ $res = $conn->query($sql);
       document.getElementById('editEmail').value = row.dataset.email;
       document.getElementById('editPhone').value = row.dataset.phone;
       document.getElementById('editAge').value = row.dataset.age;
-      document.getElementById('patientEditModal').style.display = 'block';
+      document.getElementById('patientEditModal').style.display = 'flex';
     }
 
     // status form handling
@@ -326,6 +326,14 @@ $res = $conn->query($sql);
         const text = (row.dataset.first + ' ' + row.dataset.last + ' ' + row.dataset.email + ' ' + row.dataset.phone).toLowerCase();
         row.style.display = text.indexOf(q) !== -1 ? '' : 'none';
       });
+    });
+
+    // close modals when clicking outside
+    window.addEventListener('click', function(e){
+      const viewModal = document.getElementById('patientViewModal');
+      const editModal = document.getElementById('patientEditModal');
+      if (viewModal && e.target === viewModal) viewModal.style.display = 'none';
+      if (editModal && e.target === editModal) editModal.style.display = 'none';
     });
   </script>
 </body>
