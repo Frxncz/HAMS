@@ -83,7 +83,6 @@ if ($stmt = $conn->prepare($sql)) {
               <th>Name</th>
               <th>Email</th>
               <th>Specialty</th>
-              <th>Phone</th>
               <th>Patients</th>
               <th>Status</th>
               <th>Actions</th>
@@ -96,7 +95,6 @@ if ($stmt = $conn->prepare($sql)) {
                   <td><?php echo htmlspecialchars($d['name']); ?></td>
                   <td><?php echo htmlspecialchars($d['email']); ?></td>
                   <td><?php echo htmlspecialchars($d['specialty']); ?></td>
-                  <td>&mdash;</td>
                   <td><?php echo htmlspecialchars($d['patients_count']); ?></td>
                   <td><span class="status <?php echo htmlspecialchars($d['status']) === 'active' ? 'active' : 'inactive'; ?>"><?php echo htmlspecialchars($d['status']); ?></span></td>
                   <td>
@@ -119,7 +117,7 @@ if ($stmt = $conn->prepare($sql)) {
                 </tr>
               <?php endforeach; ?>
             <?php else: ?>
-              <tr><td colspan="7">No doctors found.</td></tr>
+              <tr><td colspan="6">No doctors found.</td></tr>
             <?php endif; ?>
           </tbody>
         </table>

@@ -173,7 +173,6 @@ if ($stmt = $conn->prepare("SELECT d.docid, d.name, d.email, d.specialty, COALES
             <tr>
               <th>Name</th>
               <th>Email</th>
-              <th>Phone</th>
               <th>Total Visits</th>
             </tr>
           </thead>
@@ -183,12 +182,11 @@ if ($stmt = $conn->prepare("SELECT d.docid, d.name, d.email, d.specialty, COALES
                 <tr>
                   <td><?php echo htmlspecialchars($p['first_name'] . ' ' . $p['last_name']); ?></td>
                   <td><?php echo htmlspecialchars($p['email']); ?></td>
-                  <td>&mdash;</td>
                   <td><?php echo htmlspecialchars($p['visits']); ?></td>
                 </tr>
               <?php endforeach; ?>
             <?php else: ?>
-              <tr><td colspan="4">No patients found.</td></tr>
+              <tr><td colspan="3">No patients found.</td></tr>
             <?php endif; ?>
           </tbody>
         </table>
@@ -207,9 +205,7 @@ if ($stmt = $conn->prepare("SELECT d.docid, d.name, d.email, d.specialty, COALES
               <th>Name</th>
               <th>Email</th>
               <th>Specialty</th>
-              <th>Phone</th>
               <th>Patients</th>
-              <th>Status</th>
             </tr>
           </thead>
           <tbody>
@@ -219,13 +215,11 @@ if ($stmt = $conn->prepare("SELECT d.docid, d.name, d.email, d.specialty, COALES
                   <td><?php echo htmlspecialchars($d['name']); ?></td>
                   <td><?php echo htmlspecialchars($d['email']); ?></td>
                   <td><?php echo htmlspecialchars($d['specialty']); ?></td>
-                  <td>&mdash;</td>
                   <td><?php echo htmlspecialchars($d['patients_count']); ?></td>
-                  <td><span class="status active">active</span></td>
                 </tr>
               <?php endforeach; ?>
             <?php else: ?>
-              <tr><td colspan="6">No doctors found.</td></tr>
+              <tr><td colspan="4">No doctors found.</td></tr>
             <?php endif; ?>
           </tbody>
         </table>

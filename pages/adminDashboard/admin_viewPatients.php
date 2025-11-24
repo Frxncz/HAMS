@@ -85,14 +85,13 @@ $res = $conn->query($sql);
     <div class="main-content">
         <h1 class="page-title">Patients</h1>
 
-        <input type="text" class="search-bar" placeholder="Search by name, email, or phone..." id="searchBar">
+  <input type="text" class="search-bar" placeholder="Search by name or email..." id="searchBar">
 
         <table>
           <thead>
             <tr>
               <th>Name</th>
               <th>Email</th>
-              <th>Phone</th>
               <th>Total Visits</th>
               <th>Status</th>
               <th>Actions</th>
@@ -110,10 +109,9 @@ $res = $conn->query($sql);
                     $visits = (int)$row['total_visits'];
                     $fullName = trim($first . ' ' . $last);
             ?>
-            <tr id="patient-row-<?php echo $pid; ?>" data-pid="<?php echo $pid; ?>" data-first="<?php echo $first; ?>" data-last="<?php echo $last; ?>" data-email="<?php echo $email; ?>" data-phone="<?php echo $phone; ?>" data-status="<?php echo $status; ?>" data-visits="<?php echo $visits; ?>">
+            <tr id="patient-row-<?php echo $pid; ?>" data-pid="<?php echo $pid; ?>" data-first="<?php echo $first; ?>" data-last="<?php echo $last; ?>" data-email="<?php echo $email; ?>" data-status="<?php echo $status; ?>" data-visits="<?php echo $visits; ?>">
               <td class="p-name"><?php echo $fullName; ?></td>
               <td class="p-email"><?php echo $email; ?></td>
-              <td class="p-phone"><?php echo $phone; ?></td>
               <td class="p-visits"><?php echo $visits; ?></td>
               <td class="p-status"><span class="status <?php echo $status === 'active' ? 'active' : 'inactive'; ?>"><?php echo ucfirst($status); ?></span></td>
               <td>
@@ -299,7 +297,8 @@ $res = $conn->query($sql);
           row.dataset.age = document.getElementById('editAge').value;
           row.querySelector('.p-name').textContent = row.dataset.first + ' ' + row.dataset.last;
           row.querySelector('.p-email').textContent = row.dataset.email;
-          row.querySelector('.p-phone').textContent = row.dataset.phone;
+          const phoneCell = row.querySelector('.p-phone');
+          if (phoneCell) phoneCell.textContent = row.dataset.phone;
           closeModal('patientEditModal');
           alert('Patient updated');
         } else {
@@ -315,9 +314,9 @@ $res = $conn->query($sql);
 
     // simple client-side search
     document.getElementById('searchBar').addEventListener('input', function(e) {
-      const q = e.target.value.toLowerCase();
+      const q = (e.target.value || '').toLowerCase();
       document.querySelectorAll('#patientsTable tr').forEach(row => {
-        const text = (row.dataset.first + ' ' + row.dataset.last + ' ' + row.dataset.email + ' ' + row.dataset.phone).toLowerCase();
+        const text = ((row.dataset.first || '') + ' ' + (row.dataset.last || '') + ' ' + (row.dataset.email || '') + ' ' + (row.dataset.phone || '')).toLowerCase();
         row.style.display = text.indexOf(q) !== -1 ? '' : 'none';
       });
     });
