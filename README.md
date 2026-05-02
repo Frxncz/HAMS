@@ -6,10 +6,6 @@
 
 [HAMS](https://github.com/Frxncz/HAMS) is a web-based system for small clinics to manage appointments and schedules. Patients can request bookings, doctors can manage sessions, and admins can oversee users and appointments through role-based dashboards.
 
-## Deployment
-
-- Live link: Not deployed yet. Add your URL here.
-
 ## Tech Stack
 
 - PHP
