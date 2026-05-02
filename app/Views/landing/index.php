@@ -4,13 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HAMS | Healthcare Appointment Management System</title>
-<<<<<<< HEAD:app/Views/landing/index.php
 <link rel="stylesheet" href="/HAMS/public/css/landing-page.css" />
 <link rel="stylesheet" href="/HAMS/public/css/global.css" />
-=======
-<link rel="stylesheet" href="./css/global.css" />
-<link rel="stylesheet" href="./css/landing-page.css" />
->>>>>>> 73c400f734ba278133322a466579d3571f244470:index.html
 
 </head>
 <body>
