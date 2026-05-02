@@ -1,0 +1,66 @@
+/* Modal backdrop overlay (shared) */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  backdrop-filter: blur(2px);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Modal container */
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 520px;
+  max-width: 94%;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.3s ease;
+  position: relative;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Modal header */
+.modal h3 { margin-top: 0; margin-bottom: 18px; font-size: 20px; color: #333; font-weight: 600; }
+
+/* Form rows */
+.modal .row { margin-bottom: 12px; }
+
+/* Labels and inputs */
+.modal label { display:block; font-size:14px; font-weight:500; margin-bottom:6px; color:#333; }
+.modal select, .modal input { width:100%; padding:10px 12px; border:1px solid #ddd; border-radius:6px; font-size:14px; font-family:inherit; }
+.modal select:focus, .modal input:focus { outline:none; border-color:#3a6b97; box-shadow:0 0 0 3px rgba(58,107,151,0.08); }
+
+/* Actions */
+.modal .actions { display:flex; gap:10px; justify-content:flex-end; margin-top:16px; padding-top:12px; border-top:1px solid #eee; }
+
+.modal .btn { padding:10px 18px; border-radius:6px; border:none; cursor:pointer; font-size:14px; font-weight:500; transition:all 0.2s ease; }
+.modal .btn.primary { background:#3a6b97; color:#fff; }
+.modal .btn.primary:hover { background:#2d5578; }
+.modal .btn.ghost { background:#f0f0f0; color:#333; }
+.modal .btn.ghost:hover { background:#e0e0e0; }
+
+/* Message styles inside modals */
+.modal .message { padding:10px 14px; border-radius:6px; margin-bottom:12px; font-size:14px; }
+.modal .message.success { background:#dff3e6; color:#1b6e1b; }
+.modal .message.error { background:#fdecea; color:#b02a2a; }
+
+@media (max-width: 480px) {
+  .modal { width: 95%; padding:16px; }
+  .modal h3 { font-size:18px; }
+  .modal .actions { flex-direction:column; }
+  .modal .btn { width:100%; }
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/HAMS/public/css/signup.css" />
+  <title>Signup</title>
+</head>
+<body>
+  <!-- Back Button -->
+  <a href="/HAMS/public/index.php" class="back-button">
+    <img src="/HAMS/public/assets/icons/patientsDashboard/logout.svg" alt="back icon">
+    Back
+  </a>
+
+  <div class="login-container">
+    <!-- Form Section - Centered -->
+    <div class="form-section">
+      <div class="form-container">
+        <!-- Logo -->
+        <div class="logo">
+          <img src="/HAMS/public/assets/images/landing-page_assests/Logo-removebg-preview.png" alt="Logo">
+        </div>
+
+        <!-- Welcome Text -->
+        <div class="welcome-text">Create Account</div>
+        <div class="subtitle">Join us to get started with healthcare services</div>
+
+        
+        <form action="/HAMS/public/actions/auth/signup.php" method="POST">
+
+          <!-- First Name and Last Name -->
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">First Name</label>
+              <div class="input-wrapper">
+                <img class="input-icon" src="/HAMS/public/assets/icons/adminDashboard/profile.svg" alt="user icon">
+                <input type="text" class="form-input" name="first_name" placeholder="John" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Last Name</label>
+              <div class="input-wrapper">
+                <img class="input-icon" src="/HAMS/public/assets/icons/adminDashboard/profile.svg" alt="user icon">
+                <input type="text" class="form-input" name="last_name" placeholder="Doe" required>
+              </div>
+            </div>
+          </div>
+
+          <!-- Email Input -->
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <div class="input-wrapper">
+              <img class="input-icon" src="/HAMS/public/assets/icons/adminDashboard/email.svg" alt="email icon">
+              <input type="email" class="form-input" name="email" placeholder="john.doe@example.com" required>
+            </div>
+          </div>
+
+          <!-- Password Input -->
+          <div class="form-group">
+            <label class="form-label">Password</label>
+            <div class="input-wrapper">
+              <img class="input-icon" src="/HAMS/public/assets/icons/adminDashboard/lock.svg" alt="lock icon">
+              <input type="password" class="form-input" name="password" placeholder="Create a strong password" required>
+            </div>
+          </div>
+
+          <!-- Terms and Conditions Checkbox -->
+          <div class="checkbox-group">
+            <input type="checkbox" class="checkbox-input" id="terms" required>
+            <label class="checkbox-label" for="terms">
+              I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>
+            </label>
+          </div>
+
+          <!-- Create Account Button -->
+          <button type="submit" class="btn-signup">Create Account</button>
+        </form>
+
+        <!-- Divider -->
+        <div class="divider">Already have an account?</div>
+
+        <!-- Sign In Link -->
+        <a href="/HAMS/public/login.php" class="signin-link">Sign In Instead</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+
+

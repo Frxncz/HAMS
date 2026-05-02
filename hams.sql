@@ -24,6 +24,7 @@ INSERT INTO doctor (name, email, password, specialty) VALUES
 ('Dr. John Doe', 'doctor@hams.com', '12345', 'Cardiologist'),
 ('Dr. Sarah Cruz', 'sarah@hams.com', '12345', 'Dermatologist');
 
+
 -- Patient table
 CREATE TABLE patient (
   pid INT AUTO_INCREMENT PRIMARY KEY,
